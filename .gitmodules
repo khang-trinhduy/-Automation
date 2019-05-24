@@ -1,0 +1,3 @@
+[submodule "automation.api"]
+	path = automation.api
+	url = https://github.com/khang-trinhduy/automation-trigger.git

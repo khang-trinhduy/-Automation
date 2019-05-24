@@ -1,0 +1,9 @@
+C:\Users\trinh\source\WTF\API\Automation\SharedLibrary\obj\Debug\netstandard2.0\SharedLibrary.csprojAssemblyReference.cache
+C:\Users\trinh\source\WTF\API\Automation\SharedLibrary\obj\Debug\netstandard2.0\SharedLibrary.csproj.CoreCompileInputs.cache
+C:\Users\trinh\source\WTF\API\Automation\SharedLibrary\obj\Debug\netstandard2.0\SharedLibrary.AssemblyInfoInputs.cache
+C:\Users\trinh\source\WTF\API\Automation\SharedLibrary\obj\Debug\netstandard2.0\SharedLibrary.AssemblyInfo.cs
+C:\Users\trinh\source\WTF\API\Automation\SharedLibrary\bin\Debug\netstandard2.0\SharedLibrary.deps.json
+C:\Users\trinh\source\WTF\API\Automation\SharedLibrary\bin\Debug\netstandard2.0\SharedLibrary.dll
+C:\Users\trinh\source\WTF\API\Automation\SharedLibrary\bin\Debug\netstandard2.0\SharedLibrary.pdb
+C:\Users\trinh\source\WTF\API\Automation\SharedLibrary\obj\Debug\netstandard2.0\SharedLibrary.dll
+C:\Users\trinh\source\WTF\API\Automation\SharedLibrary\obj\Debug\netstandard2.0\SharedLibrary.pdb
