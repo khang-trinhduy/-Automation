@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\trinh\\source\\WTF\\API\\Automation\\SharedLibrary\\SharedLibrary.csproj": {}
+    "C:\\Users\\trinh\\source\\WTF\\API\\Automation\\sharedlibrary\\sharedlibrary.csproj": {}
   },
   "projects": {
-    "C:\\Users\\trinh\\source\\WTF\\API\\Automation\\SharedLibrary\\SharedLibrary.csproj": {
+    "C:\\Users\\trinh\\source\\WTF\\API\\Automation\\sharedlibrary\\sharedlibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\trinh\\source\\WTF\\API\\Automation\\SharedLibrary\\SharedLibrary.csproj",
-        "projectName": "SharedLibrary",
-        "projectPath": "C:\\Users\\trinh\\source\\WTF\\API\\Automation\\SharedLibrary\\SharedLibrary.csproj",
+        "projectUniqueName": "C:\\Users\\trinh\\source\\WTF\\API\\Automation\\sharedlibrary\\sharedlibrary.csproj",
+        "projectName": "sharedlibrary",
+        "projectPath": "C:\\Users\\trinh\\source\\WTF\\API\\Automation\\sharedlibrary\\sharedlibrary.csproj",
         "packagesPath": "C:\\Users\\trinh\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\trinh\\source\\WTF\\API\\Automation\\SharedLibrary\\obj\\",
+        "outputPath": "C:\\Users\\trinh\\source\\WTF\\API\\Automation\\sharedlibrary\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
