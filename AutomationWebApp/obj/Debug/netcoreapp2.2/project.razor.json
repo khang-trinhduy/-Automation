@@ -2794,8 +2794,23 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Views\\Home\\Contact.cshtml",
+      "TargetPath": "Views\\Home\\Contact.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views\\Home\\Trigger.cshtml",
+      "TargetPath": "Views\\Home\\Trigger.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views\\Home\\EditContact.cshtml",
+      "TargetPath": "Views\\Home\\EditContact.cshtml",
       "FileKind": "mvc"
     }
   ]

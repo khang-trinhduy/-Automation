@@ -2724,7 +2724,7 @@
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
       },
-      "Newtonsoft.Json/11.0.2": {
+      "Newtonsoft.Json/12.0.2": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
@@ -4437,6 +4437,30 @@
         },
         "runtime": {
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
+        }
+      },
+      "adapter/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "newtonsoft.json": "12.0.2",
+          "sharedlibrary": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/adapter.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/adapter.dll": {}
+        }
+      },
+      "sharedlibrary/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "compile": {
+          "bin/placeholder/sharedlibrary.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/sharedlibrary.dll": {}
         }
       }
     }
@@ -7335,10 +7359,10 @@
         "netstandard.library.nuspec"
       ]
     },
-    "Newtonsoft.Json/11.0.2": {
-      "sha512": "IvJe1pj7JHEsP8B8J8DwlMEx8UInrs/x+9oVY+oCD13jpLu4JbJU2WCIsMRn5C4yW9+DgkaO8uiVE5VHKjpmdQ==",
+    "Newtonsoft.Json/12.0.2": {
+      "sha512": "rTK0s2EKlfHsQsH6Yx2smvcTCeyoDNgCW7FEYyV01drPlh2T243PR2DiDXqtC5N4GDm4Ma/lkxfW5a/4793vbA==",
       "type": "package",
-      "path": "newtonsoft.json/11.0.2",
+      "path": "newtonsoft.json/12.0.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -7361,7 +7385,7 @@
         "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.xml",
         "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.dll",
         "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.xml",
-        "newtonsoft.json.11.0.2.nupkg.sha512",
+        "newtonsoft.json.12.0.2.nupkg.sha512",
         "newtonsoft.json.nuspec"
       ]
     },
@@ -12061,13 +12085,25 @@
         "system.xml.xpath.xdocument.4.3.0.nupkg.sha512",
         "system.xml.xpath.xdocument.nuspec"
       ]
+    },
+    "adapter/1.0.0": {
+      "type": "project",
+      "path": "../adapter/adapter.csproj",
+      "msbuildProject": "../adapter/adapter.csproj"
+    },
+    "sharedlibrary/1.0.0": {
+      "type": "project",
+      "path": "../sharedlibrary/sharedlibrary.csproj",
+      "msbuildProject": "../sharedlibrary/sharedlibrary.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.2": [
       "Microsoft.AspNetCore.App >= 2.2.0",
       "Microsoft.AspNetCore.Razor.Design >= 2.2.0",
-      "Microsoft.NETCore.App >= 2.2.0"
+      "Microsoft.NETCore.App >= 2.2.0",
+      "adapter >= 1.0.0",
+      "sharedlibrary >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -12099,7 +12135,14 @@
       },
       "frameworks": {
         "netcoreapp2.2": {
-          "projectReferences": {}
+          "projectReferences": {
+            "c:\\Users\\trinh\\source\\WTF\\API\\Automation\\adapter\\adapter.csproj": {
+              "projectPath": "c:\\Users\\trinh\\source\\WTF\\API\\Automation\\adapter\\adapter.csproj"
+            },
+            "c:\\Users\\trinh\\source\\WTF\\API\\Automation\\sharedlibrary\\sharedlibrary.csproj": {
+              "projectPath": "c:\\Users\\trinh\\source\\WTF\\API\\Automation\\sharedlibrary\\sharedlibrary.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

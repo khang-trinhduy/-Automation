@@ -11,8 +11,38 @@ namespace Adapter
         public async Task<List<ContactModel>> GetContacts()
         {
             var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture, 
-                "User/GetAllUsers"));
+                "Contacts/"));
             return await GetAsync<List<ContactModel>>(requestUrl);
+        }
+        public async Task<ContactModel> GetContact(int id)
+        {
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture, 
+                "Contacts/" + id.ToString()));
+            return await GetAsync<ContactModel>(requestUrl);
+        }
+        public async Task<Message<ContactModel>> UpdateContact(int id, ContactModel model)
+        {
+           var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "Contacts/" + id.ToString()));
+            return await PutAsync<ContactModel>(requestUrl, model);
+        }
+        public async Task<List<CampaignModel>> GetCampaigns()
+        {
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "Campaigns/"));
+            return await GetAsync<List<CampaignModel>>(requestUrl);
+        }
+        public async Task<CampaignModel> GetCampaign(int id)
+        {
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture, 
+                "Campaigns/" + id.ToString()));
+            return await GetAsync<CampaignModel>(requestUrl);
+        }
+        public async Task<List<TriggerModel>> GetTriggers()
+        {
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "Triggers/"));
+            return await GetAsync<List<TriggerModel>>(requestUrl);
         }
     }
 }

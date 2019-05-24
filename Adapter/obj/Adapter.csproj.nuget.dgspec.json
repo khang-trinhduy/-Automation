@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\trinh\\source\\WTF\\API\\Automation\\Adapter\\adapter.csproj": {}
+    "c:\\Users\\trinh\\source\\WTF\\API\\Automation\\adapter\\adapter.csproj": {}
   },
   "projects": {
-    "C:\\Users\\trinh\\source\\WTF\\API\\Automation\\Adapter\\adapter.csproj": {
+    "c:\\Users\\trinh\\source\\WTF\\API\\Automation\\adapter\\adapter.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\trinh\\source\\WTF\\API\\Automation\\Adapter\\adapter.csproj",
+        "projectUniqueName": "c:\\Users\\trinh\\source\\WTF\\API\\Automation\\adapter\\adapter.csproj",
         "projectName": "adapter",
-        "projectPath": "C:\\Users\\trinh\\source\\WTF\\API\\Automation\\Adapter\\adapter.csproj",
+        "projectPath": "c:\\Users\\trinh\\source\\WTF\\API\\Automation\\adapter\\adapter.csproj",
         "packagesPath": "C:\\Users\\trinh\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\trinh\\source\\WTF\\API\\Automation\\Adapter\\obj\\",
+        "outputPath": "c:\\Users\\trinh\\source\\WTF\\API\\Automation\\adapter\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -30,8 +30,8 @@
         "frameworks": {
           "netstandard2.0": {
             "projectReferences": {
-              "C:\\Users\\trinh\\source\\WTF\\API\\Automation\\sharedlibrary\\sharedlibrary.csproj": {
-                "projectPath": "C:\\Users\\trinh\\source\\WTF\\API\\Automation\\sharedlibrary\\sharedlibrary.csproj"
+              "c:\\Users\\trinh\\source\\WTF\\API\\Automation\\sharedlibrary\\sharedlibrary.csproj": {
+                "projectPath": "c:\\Users\\trinh\\source\\WTF\\API\\Automation\\sharedlibrary\\sharedlibrary.csproj"
               }
             }
           }
@@ -53,7 +53,7 @@
             },
             "newtonsoft.json": {
               "target": "Package",
-              "version": "(, )"
+              "version": "[12.0.2, )"
             }
           },
           "imports": [
@@ -64,14 +64,14 @@
         }
       }
     },
-    "C:\\Users\\trinh\\source\\WTF\\API\\Automation\\sharedlibrary\\sharedlibrary.csproj": {
+    "c:\\Users\\trinh\\source\\WTF\\API\\Automation\\sharedlibrary\\sharedlibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\trinh\\source\\WTF\\API\\Automation\\sharedlibrary\\sharedlibrary.csproj",
+        "projectUniqueName": "c:\\Users\\trinh\\source\\WTF\\API\\Automation\\sharedlibrary\\sharedlibrary.csproj",
         "projectName": "sharedlibrary",
-        "projectPath": "C:\\Users\\trinh\\source\\WTF\\API\\Automation\\sharedlibrary\\sharedlibrary.csproj",
+        "projectPath": "c:\\Users\\trinh\\source\\WTF\\API\\Automation\\sharedlibrary\\sharedlibrary.csproj",
         "packagesPath": "C:\\Users\\trinh\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\trinh\\source\\WTF\\API\\Automation\\sharedlibrary\\obj\\",
+        "outputPath": "c:\\Users\\trinh\\source\\WTF\\API\\Automation\\sharedlibrary\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

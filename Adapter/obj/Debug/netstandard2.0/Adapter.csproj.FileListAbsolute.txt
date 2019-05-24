@@ -2,3 +2,11 @@ C:\Users\trinh\source\WTF\API\Automation\Adapter\obj\Debug\netstandard2.0\Adapte
 C:\Users\trinh\source\WTF\API\Automation\Adapter\obj\Debug\netstandard2.0\Adapter.csproj.CoreCompileInputs.cache
 C:\Users\trinh\source\WTF\API\Automation\Adapter\obj\Debug\netstandard2.0\Adapter.AssemblyInfoInputs.cache
 C:\Users\trinh\source\WTF\API\Automation\Adapter\obj\Debug\netstandard2.0\Adapter.AssemblyInfo.cs
+C:\Users\trinh\source\WTF\API\Automation\adapter\bin\Debug\netstandard2.0\adapter.deps.json
+C:\Users\trinh\source\WTF\API\Automation\adapter\bin\Debug\netstandard2.0\adapter.dll
+C:\Users\trinh\source\WTF\API\Automation\adapter\bin\Debug\netstandard2.0\adapter.pdb
+C:\Users\trinh\source\WTF\API\Automation\adapter\bin\Debug\netstandard2.0\sharedlibrary.dll
+C:\Users\trinh\source\WTF\API\Automation\adapter\bin\Debug\netstandard2.0\sharedlibrary.pdb
+C:\Users\trinh\source\WTF\API\Automation\adapter\obj\Debug\netstandard2.0\adapter.csproj.CopyComplete
+C:\Users\trinh\source\WTF\API\Automation\adapter\obj\Debug\netstandard2.0\adapter.dll
+C:\Users\trinh\source\WTF\API\Automation\adapter\obj\Debug\netstandard2.0\adapter.pdb

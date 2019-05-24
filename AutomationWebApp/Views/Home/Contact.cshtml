@@ -1,0 +1,29 @@
+@model IEnumerable<SharedLibrary.ContactModel>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Phone number</th>
+            <th>Campaign</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td scope="row">@item.Name</td>
+                <td>@item.Age</td>
+                <td>@item.PhoneNumber</td>
+                <td>@item.CampaignId</td>
+                <td>
+                    <a asp-action="EditContact" asp-route-id="@item.Id">Edit</a>
+                    | <a asp-action="DeteleContact" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+
+        }
+        
+    </tbody>
+</table>

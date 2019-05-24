@@ -1,7 +1,9 @@
 using System;
 using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using SharedLibrary;
 
 namespace Adapter
 {
@@ -19,7 +21,6 @@ namespace Adapter
             BaseEndpoint = endpoint;
             _httpClient = new HttpClient();
         }
-
         private async Task<T> GetAsync<T>(Uri requestUri)
         {
             //FIXME wth is this?
@@ -30,6 +31,18 @@ namespace Adapter
             respond.EnsureSuccessStatusCode();
             var data = await respond.Content.ReadAsStringAsync();
             return JsonConvert.DeserializeObject<T>(data);
+        }
+        private async Task<Message<T>> PutAsync<T>(Uri requestUrl, T content)
+        {
+            var respond = await _httpClient.PutAsync(requestUrl.ToString(), CreateHttpContent(content));
+            respond.EnsureSuccessStatusCode();
+            var data = await respond.Content.ReadAsStringAsync();
+            return JsonConvert.DeserializeObject<Message<T>>(data);
+        }
+        private HttpContent CreateHttpContent<T>(T content)
+        {
+            var json = JsonConvert.SerializeObject(content, new JsonSerializerSettings {DateFormatHandling = DateFormatHandling.MicrosoftDateFormat});
+            return new StringContent(json, Encoding.UTF8, "application/json");
         }
         //FIXME wtf is this?
         private Uri CreateRequestUri(string relativePath, string queryString = "")

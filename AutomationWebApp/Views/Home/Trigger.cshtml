@@ -1,0 +1,29 @@
+@model IEnumerable<SharedLibrary.TriggerModel>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Position</th>
+            <th>Active</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td scope="row">@item.Title</td>
+                <td>@item.Description</td>
+                <td>@item.Position</td>
+                <td>!@item.IsNotActive</td>
+                <td>
+                    <a asp-action="EditTrigger" asp-route-id="@item.Id">Edit</a>
+                    | <a asp-action="DeteleTrigger" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+
+        }
+        
+    </tbody>
+</table>
