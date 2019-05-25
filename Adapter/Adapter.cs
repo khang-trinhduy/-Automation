@@ -128,5 +128,35 @@ namespace Adapter
                 "Actions/" + id.ToString()));
             return await DeleteAsync<ActionModel>(requestUrl);
         }
+        public async Task<List<ConditionModel>> GetConditions()
+        {
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "Conditions"));
+            return await GetAsync<List<ConditionModel>>(requestUrl);
+        }
+        public async Task<ConditionModel> GetCondition(int id)
+        {
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "Conditions/" + id.ToString()));
+            return await GetAsync<ConditionModel>(requestUrl);
+        }
+        public async Task<Message<ConditionModel>> CreateCondition(ConditionModel model)
+        {
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "Conditions/"));
+            return await PostAsync<ConditionModel>(requestUrl, model);
+        }
+        public async Task<Message<ConditionModel>> UpdateCondition(int id, ConditionModel model)
+        {
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "Conditions/" + id.ToString()));
+            return await PutAsync<ConditionModel>(requestUrl, model);
+        }
+        public async Task<Message<ConditionModel>> RemoveCondition(int id)
+        {
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "Conditions/" + id.ToString()));
+            return await DeleteAsync<ConditionModel>(requestUrl);
+        }
     }
 }

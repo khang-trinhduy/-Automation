@@ -334,5 +334,81 @@ namespace AutomationWebApp.Controllers
             }
             return NotFound();
         }
+        public async Task<IActionResult> Condition()
+        {
+            var data = await ApiClientFactory.Instance.GetConditions();
+            return View(data);
+        }
+        [HttpGet]
+        public ActionResult CreateCondition()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreateCondition([Bind("Type, Operator, Threshold")] ConditionModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var respond = await ApiClientFactory.Instance.CreateCondition(model);
+                if (respond != null && respond.IsSuccessStatusCode)
+                {
+                    return RedirectToAction(nameof(Condition));
+                }
+            }
+            return NotFound();
+        }
+        [HttpGet]
+        public async Task<IActionResult> EditCondition(int id)
+        {
+            var data = await ApiClientFactory.Instance.GetCondition(id);
+            if (data != null)
+            {
+                return View(data);
+            }
+            return NotFound();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditCondition(int Id, [Bind("Id, Type, Operator, Threshold")]ConditionModel model)
+        {
+            if (Id != model.Id)
+            {
+                return NotFound();
+            }
+            var respond = await ApiClientFactory.Instance.UpdateCondition(Id, model);
+            if (respond != null && respond.IsSuccessStatusCode)
+            {
+                return RedirectToAction(nameof(Condition));
+            }
+            return NotFound();
+        }
+        [HttpGet]
+        public ActionResult DetailCondition(ConditionModel model)
+        {
+            return View(model);
+        }
+        [HttpGet]
+        public async Task<IActionResult> DeleteCondition(int id)
+        {
+            var data = await ApiClientFactory.Instance.GetCondition(id);
+            if (data != null)
+            {
+                return View(data);
+            }
+            return NotFound();
+        }
+        [HttpPost, ActionName("DeleteCondition")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConditionConfirmed(int id)
+        {
+            var data = await ApiClientFactory.Instance.GetCondition(id);
+            var respond = await ApiClientFactory.Instance.RemoveCondition(id);
+            if (respond != null && respond.IsSuccessStatusCode)
+            {
+                return RedirectToAction("DetailCondition", respond.Content);
+            }
+            return NotFound();
+        }
     }
 }

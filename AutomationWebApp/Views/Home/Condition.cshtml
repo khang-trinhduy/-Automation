@@ -1,0 +1,31 @@
+@model IEnumerable<SharedLibrary.ConditionModel>
+@{
+    ViewData["Title"] = "Condition page";
+}
+<hr/>
+<a asp-action="CreateCondition">Create new condition</a> Or
+<a asp-action="ImportCondition">Import condition from excel/csv</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Operator</th>
+            <th>Threshold</th>
+            <th>Type</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+            <tr>
+                <td scope="row">@item.Operator</td>
+                <td>@item.Threshold</td>
+                <td>@item.Type</td>
+                <td><a asp-action="EditCondition" asp-route-id="@item.Id">Edit</a> | 
+                    <a asp-action="DeleteCondition" asp-route-id="@item.Id">Delete</a></td>
+            </tr>
+
+        }
+        
+    </tbody>
+</table>

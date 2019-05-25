@@ -1,0 +1,21 @@
+@model SharedLibrary.ConditionModel;
+@{
+    ViewData["title"] = "Detail condition";
+}
+<h4>The following condition has been removed</h4>
+<div class="form-group">
+  <label asp-for="Operator">Operator</label>
+  <input asp-for="Operator" type="text" name="Operator" class="form-control" placeholder="" aria-describedby="helpId">
+  <small id="helpId" class="text-muted">Help text</small>
+</div>
+<div class="form-group">
+  <label asp-for="Threshold">Threshold</label>
+  <input asp-for="Threshold" type="text" name="Threshold" class="form-control" placeholder="" aria-describedby="helpId">
+  <small id="helpId" class="text-muted">Help text</small>
+</div>
+<div class="form-group">
+  <label asp-for="Type">Type</label>
+  <input asp-for="Type" type="text" name="Type" id="Type" class="form-control" placeholder="" aria-describedby="helpId">
+  <small id="helpId" class="text-muted">Help text</small>
+</div>
+<a asp-action="Condition">Back to condition page</a>

@@ -1,0 +1,37 @@
+@model SharedLibrary.ConditionModel
+@{
+    ViewData["title"] = "Edit condition";
+}
+<div class="container">
+    <form asp-action="EditCondition">
+        <div class="form-group" hidden>
+          <label asp-for="Id">Id</label>
+          <input asp-for="Id" type="text" name="Id" class="form-control" placeholder="" aria-describedby="helpId">
+          <small id="helpId" class="text-muted">Help text</small>
+        </div>
+        <div class="form-group row">
+            <label asp-for="Operator" class="col-sm-1-12 col-form-label">Operator</label>
+            <div class="col-sm-1-12">
+                <input asp-for="Operator" type="text" class="form-control" name="Operator"  placeholder="">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="Threshold" class="col-sm-1-12 col-form-label">Threshold</label>
+            <div class="col-sm-1-12">
+                <input asp-for="Threshold" type="text" class="form-control" name="Threshold" placeholder="">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="Type" class="col-sm-1-12 col-form-label">Type</label>
+            <div class="col-sm-1-12">
+                <input asp-for="Type" type="text" class="form-control" name="Type" placeholder="">
+            </div>
+        </div>
+        
+        <div class="form-group row">
+            <div class="offset-sm-2 col-sm-10">
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+    </form>
+</div>

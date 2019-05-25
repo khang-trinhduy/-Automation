@@ -52,3 +52,8 @@ C:\Users\trinh\source\WTF\API\Automation\AutomationWebApp\obj\Debug\netcoreapp2.
 C:\Users\trinh\source\WTF\API\Automation\AutomationWebApp\obj\Debug\netcoreapp2.2\Razor\Views\Home\DeleteAction.g.cshtml.cs
 C:\Users\trinh\source\WTF\API\Automation\AutomationWebApp\obj\Debug\netcoreapp2.2\Razor\Views\Home\DetailAction.g.cshtml.cs
 C:\Users\trinh\source\WTF\API\Automation\AutomationWebApp\obj\Debug\netcoreapp2.2\Razor\Views\Home\EditAction.g.cshtml.cs
+C:\Users\trinh\source\WTF\API\Automation\AutomationWebApp\obj\Debug\netcoreapp2.2\Razor\Views\Home\Condition.g.cshtml.cs
+C:\Users\trinh\source\WTF\API\Automation\AutomationWebApp\obj\Debug\netcoreapp2.2\Razor\Views\Home\CreateCondition.g.cshtml.cs
+C:\Users\trinh\source\WTF\API\Automation\AutomationWebApp\obj\Debug\netcoreapp2.2\Razor\Views\Home\DeleteCondition.g.cshtml.cs
+C:\Users\trinh\source\WTF\API\Automation\AutomationWebApp\obj\Debug\netcoreapp2.2\Razor\Views\Home\DetailCondition.g.cshtml.cs
+C:\Users\trinh\source\WTF\API\Automation\AutomationWebApp\obj\Debug\netcoreapp2.2\Razor\Views\Home\EditCondition.g.cshtml.cs
