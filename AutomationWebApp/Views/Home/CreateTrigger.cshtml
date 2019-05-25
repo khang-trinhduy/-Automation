@@ -1,0 +1,73 @@
+@model SharedLibrary.TriggerModel;
+@{
+    ViewData["title"] = "Create trigger";
+}
+<div class="container">
+    <form asp-action="CreateTrigger">
+        <div class="form-group row">
+            <label asp-for="Title" class="col-sm-1-12 col-form-label">Title</label>
+            <div class="col-sm-1-12">
+                <input asp-for="Title" type="text" class="form-control" name="Title" id="Title" placeholder="Title">
+            </div>
+        </div>
+        <fieldset class="form-group row">
+            <legend class="col-form-legend col-sm-1-12">Title</legend>
+            <div class="col-sm-1-12">
+                
+            </div>
+        </fieldset>
+        <div class="form-group row">
+            <label asp-for="Description" class="col-sm-1-12 col-form-label">Description</label>
+            <div class="col-sm-1-12">
+                <input asp-for="Description" type="text" class="form-control" name="Description" id="Description" placeholder="Description">
+            </div>
+        </div>
+        <fieldset class="form-group row">
+            <legend class="col-form-legend col-sm-1-12">Description</legend>
+            <div class="col-sm-1-12">
+                
+            </div>
+        </fieldset>
+        <div class="form-group row">
+            <label asp-for="IsNotActive" class="col-sm-1-12 col-form-label">IsNotActive</label>
+            <div class="col-sm-1-12">
+                <input asp-for="IsNotActive" type="checkbox" class="form-control" name="IsNotActive" id="IsNotActive" placeholder="IsNotActive">
+            </div>
+        </div>
+        <fieldset class="form-group row">
+            <legend class="col-form-legend col-sm-1-12">IsNotActive</legend>
+            <div class="col-sm-1-12">
+                
+            </div>
+        </fieldset>
+        <div class="form-group row">
+            <label asp-for="Position" class="col-sm-1-12 col-form-label">Position</label>
+            <div class="col-sm-1-12">
+                <input asp-for="Position" type="number" class="form-control" name="Position" id="Position" placeholder="Position">
+            </div>
+        </div>
+        <fieldset class="form-group row">
+            <legend class="col-form-legend col-sm-1-12">Position</legend>
+            <div class="col-sm-1-12">
+                
+            </div>
+        </fieldset>
+        <div class="form-group row">
+            <label asp-for="Table" class="col-sm-1-12 col-form-label">Table</label>
+            <div class="col-sm-1-12">
+                <input asp-for="Table" type="text" class="form-control" name="Table" id="Table" placeholder="Table">
+            </div>
+        </div>
+        <fieldset class="form-group row">
+            <legend class="col-form-legend col-sm-1-12">Table</legend>
+            <div class="col-sm-1-12">
+                
+            </div>
+        </fieldset>
+        <div class="form-group row">
+            <div class="offset-sm-2 col-sm-10">
+                <button type="submit" class="btn btn-primary">Create</button>
+            </div>
+        </div>
+    </form>
+</div>

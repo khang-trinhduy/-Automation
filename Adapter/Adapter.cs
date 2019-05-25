@@ -74,5 +74,29 @@ namespace Adapter
                 "Triggers/"));
             return await GetAsync<List<TriggerModel>>(requestUrl);
         }
+        public async Task<TriggerModel> GetTrigger(int id)
+        {
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "Triggers/" + id.ToString()));
+            return await GetAsync<TriggerModel>(requestUrl);
+        }
+        public async Task<Message<TriggerModel>> CreateTrigger(TriggerModel model)
+        {
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "Triggers/"));
+            return await PostAsync<TriggerModel>(requestUrl, model);
+        }
+        public async Task<Message<TriggerModel>> UpdateTrigger(int id, TriggerModel model)
+        {
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "Triggers/" + id.ToString()));
+            return await PutAsync<TriggerModel>(requestUrl, model);
+        }
+        public async Task<Message<TriggerModel>> RemoveTrigger(int id)
+        {
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "Triggers/" + id.ToString()));
+            return await DeleteAsync<TriggerModel>(requestUrl);
+        }
     }
 }

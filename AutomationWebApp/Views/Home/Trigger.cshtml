@@ -1,4 +1,10 @@
 @model IEnumerable<SharedLibrary.TriggerModel>
+@{
+    ViewData["Title"] = "Trigger page";
+}
+<hr/>
+<a asp-action="CreateTrigger">Create trigger</a> Or
+<a asp-action="ImportTrigger">Import trigger from excel/csv</a>
 <table class="table">
     <thead>
         <tr>
@@ -19,7 +25,7 @@
                 <td>!@item.IsNotActive</td>
                 <td>
                     <a asp-action="EditTrigger" asp-route-id="@item.Id">Edit</a>
-                    | <a asp-action="DeteleTrigger" asp-route-id="@item.Id">Delete</a>
+                    | <a asp-action="DeleteTrigger" asp-route-id="@item.Id">Delete</a>
                 </td>
             </tr>
 

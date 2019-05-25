@@ -36,8 +36,8 @@ namespace Adapter
         {
             var respond = await _httpClient.PostAsync(requestUrl.ToString(), CreateHttpContent(content));
             respond.EnsureSuccessStatusCode();
-            var data = await respond.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<Message<T>>(data);
+            var message = Message<T>.CreateMessage(respond);
+            return message;
         }
         private async Task<Message<T>> PutAsync<T>(Uri requestUrl, T content)
         {

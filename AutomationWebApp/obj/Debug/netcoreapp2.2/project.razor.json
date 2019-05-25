@@ -2769,6 +2769,16 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Views\\Home\\EditTrigger.cshtml",
+      "TargetPath": "Views\\Home\\EditTrigger.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views\\Home\\CreateTrigger.cshtml",
+      "TargetPath": "Views\\Home\\CreateTrigger.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Views\\Home\\CreateContact.cshtml",
       "TargetPath": "Views\\Home\\CreateContact.cshtml",
       "FileKind": "mvc"
@@ -2844,6 +2854,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Views\\Home\\DetailTrigger.cshtml",
+      "TargetPath": "Views\\Home\\DetailTrigger.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "FileKind": "mvc"
@@ -2851,6 +2866,11 @@
     {
       "FilePath": "Views\\Home\\EditContact.cshtml",
       "TargetPath": "Views\\Home\\EditContact.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views\\Home\\DeleteTrigger.cshtml",
+      "TargetPath": "Views\\Home\\DeleteTrigger.cshtml",
       "FileKind": "mvc"
     }
   ]

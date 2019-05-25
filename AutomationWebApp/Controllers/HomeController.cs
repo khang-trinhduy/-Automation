@@ -89,7 +89,7 @@ namespace AutomationWebApp.Controllers
             var respond = await ApiClientFactory.Instance.RemoveContact(id);
             if (respond != null && respond.IsSuccessStatusCode)
             {
-                return RedirectToAction("DetailContact", respond.Content);             
+                return RedirectToAction("DetailContact", respond.Content);
             }
             return NotFound();
         }
@@ -165,7 +165,7 @@ namespace AutomationWebApp.Controllers
             var respond = await ApiClientFactory.Instance.RemoveCampaign(id);
             if (respond != null && respond.IsSuccessStatusCode)
             {
-                return RedirectToAction("DetailCampaign", respond.Content);             
+                return RedirectToAction("DetailCampaign", respond.Content);
             }
             return NotFound();
         }
@@ -174,7 +174,80 @@ namespace AutomationWebApp.Controllers
             var data = await ApiClientFactory.Instance.GetTriggers();
             return View(data);
         }
-
+        [HttpGet]
+        public async Task<IActionResult> CreateTrigger()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreateTrigger([Bind("Title, Description, IsNotActive, Position, Table")] TriggerModel trigger)
+        {
+            if (ModelState.IsValid)
+            {
+                var respond = await ApiClientFactory.Instance.CreateTrigger(trigger);
+                if (respond != null && respond.IsSuccessStatusCode)
+                {
+                    return RedirectToAction(nameof(Trigger));
+                }
+            }
+            return NotFound();
+        }
+        [HttpGet]
+        public async Task<IActionResult> EditTrigger(int id)
+        {
+            var data = await ApiClientFactory.Instance.GetTrigger(id);
+            if (data != null)
+            {
+                return View(data);
+            }
+            return NotFound();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditTrigger(int Id, [Bind("Id, Title, Description, IsNotActive, Position, Table")] TriggerModel trigger)
+        {
+            if (Id != trigger.Id)
+            {
+                return NotFound();
+            }
+            var respond = await ApiClientFactory.Instance.UpdateTrigger(Id, trigger);
+            if (respond != null && respond.IsSuccessStatusCode)
+            {
+                return RedirectToAction(nameof(Trigger));
+            }
+            return NotFound();
+        }
+        [HttpGet]
+        public async Task<IActionResult> DeleteTrigger(int id)
+        {
+            var data = await ApiClientFactory.Instance.GetTrigger(id);
+            if (data != null)
+            {
+                return View(data);
+            }
+            return NotFound();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken, ActionName("DeleteTrigger")]
+        public async Task<IActionResult> DeleteTriggerConfirmed(int id)
+        {
+            var respond = await ApiClientFactory.Instance.RemoveTrigger(id);
+            if(respond != null && respond.IsSuccessStatusCode)
+            {
+                return RedirectToAction("DetailTrigger", respond.Content);
+            }
+            return NotFound();
+        }
+        [HttpGet]
+        public async Task<IActionResult> DetailTrigger(TriggerModel model)
+        {
+            if(model != null)
+            {
+                return View(model);
+            }
+            return NotFound();
+        }
         public IActionResult Privacy()
         {
             return View();
