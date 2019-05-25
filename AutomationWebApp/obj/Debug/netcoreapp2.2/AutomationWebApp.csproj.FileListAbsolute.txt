@@ -38,3 +38,8 @@ C:\Users\trinh\source\WTF\API\Automation\AutomationWebApp\obj\Debug\netcoreapp2.
 c:\Users\trinh\source\WTF\API\Automation\AutomationWebApp\obj\Debug\netcoreapp2.2\Razor\Views\Home\DeleteContact.g.cshtml.cs
 c:\Users\trinh\source\WTF\API\Automation\AutomationWebApp\obj\Debug\netcoreapp2.2\Razor\Views\Home\DetailContact.g.cshtml.cs
 C:\Users\trinh\source\WTF\API\Automation\AutomationWebApp\obj\Debug\netcoreapp2.2\Razor\Views\Home\CreateContact.g.cshtml.cs
+C:\Users\trinh\source\WTF\API\Automation\AutomationWebApp\obj\Debug\netcoreapp2.2\Razor\Views\Home\Campaign.g.cshtml.cs
+C:\Users\trinh\source\WTF\API\Automation\AutomationWebApp\obj\Debug\netcoreapp2.2\Razor\Views\Home\CreateCampaign.g.cshtml.cs
+C:\Users\trinh\source\WTF\API\Automation\AutomationWebApp\obj\Debug\netcoreapp2.2\Razor\Views\Home\DeleteCampaign.g.cshtml.cs
+C:\Users\trinh\source\WTF\API\Automation\AutomationWebApp\obj\Debug\netcoreapp2.2\Razor\Views\Home\DetailCampaign.g.cshtml.cs
+C:\Users\trinh\source\WTF\API\Automation\AutomationWebApp\obj\Debug\netcoreapp2.2\Razor\Views\Home\EditCampaign.g.cshtml.cs

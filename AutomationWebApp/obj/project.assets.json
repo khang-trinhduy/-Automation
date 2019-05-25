@@ -12139,11 +12139,11 @@
       "frameworks": {
         "netcoreapp2.2": {
           "projectReferences": {
-            "c:\\Users\\trinh\\source\\WTF\\API\\Automation\\adapter\\adapter.csproj": {
-              "projectPath": "c:\\Users\\trinh\\source\\WTF\\API\\Automation\\adapter\\adapter.csproj"
+            "C:\\Users\\trinh\\source\\WTF\\API\\Automation\\adapter\\adapter.csproj": {
+              "projectPath": "C:\\Users\\trinh\\source\\WTF\\API\\Automation\\adapter\\adapter.csproj"
             },
-            "c:\\Users\\trinh\\source\\WTF\\API\\Automation\\sharedlibrary\\sharedlibrary.csproj": {
-              "projectPath": "c:\\Users\\trinh\\source\\WTF\\API\\Automation\\sharedlibrary\\sharedlibrary.csproj"
+            "C:\\Users\\trinh\\source\\WTF\\API\\Automation\\sharedlibrary\\sharedlibrary.csproj": {
+              "projectPath": "C:\\Users\\trinh\\source\\WTF\\API\\Automation\\sharedlibrary\\sharedlibrary.csproj"
             }
           }
         }

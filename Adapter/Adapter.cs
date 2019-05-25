@@ -50,6 +50,24 @@ namespace Adapter
                 "Campaigns/" + id.ToString()));
             return await GetAsync<CampaignModel>(requestUrl);
         }
+        public async Task<Message<CampaignModel>> CreateCampaign(CampaignModel model)
+        {
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "Campaigns/"));
+            return await PostAsync<CampaignModel>(requestUrl, model);
+        }
+        public async Task<Message<CampaignModel>> UpdateCampaign(int id, CampaignModel model)
+        {
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "Campaigns/" + id.ToString()));
+            return await PutAsync<CampaignModel>(requestUrl, model);
+        }
+        public async Task<Message<CampaignModel>> RemoveCampaign(int id)
+        {
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "Campaigns/" + id.ToString()));
+            return await DeleteAsync<CampaignModel>(requestUrl);
+        }
         public async Task<List<TriggerModel>> GetTriggers()
         {
             var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,

@@ -1,0 +1,29 @@
+@model SharedLibrary.CampaignModel;
+@{
+    ViewData["title"] = "Delete campaign";
+}
+
+<div class="container">
+    <form>
+        <div class="form-group row">
+            <label asp-for="Name" class="col-sm-1-12 col-form-label">Name</label>
+            <div class="col-sm-1-12">
+                <input asp-for="Name" type="text" class="form-control" name="Name" id="Name" placeholder="">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="IsRunning" class="col-sm-1-12 col-form-label">IsRunning</label>
+            <div class="col-sm-1-12">
+                <input asp-for="IsRunning" type="checkbox" class="form-control" name="IsRunning" id="IsRunning" placeholder="">
+            </div>
+        </div>
+    </form>
+</div>
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    <div>
+        <button value="delete" type="submit" class="btn btn-danger">Delete</button>
+        <a asp-action="Campaign">Back to list</a>
+    </div>
+}

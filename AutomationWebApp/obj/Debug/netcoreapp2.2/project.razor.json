@@ -2804,6 +2804,21 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Views\\Home\\CreateCampaign.cshtml",
+      "TargetPath": "Views\\Home\\CreateCampaign.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views\\Home\\DeleteCampaign.cshtml",
+      "TargetPath": "Views\\Home\\DeleteCampaign.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views\\Home\\DetailCampaign.cshtml",
+      "TargetPath": "Views\\Home\\DetailCampaign.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Views\\Home\\Contact.cshtml",
       "TargetPath": "Views\\Home\\Contact.cshtml",
       "FileKind": "mvc"
@@ -2811,6 +2826,16 @@
     {
       "FilePath": "Views\\Home\\Trigger.cshtml",
       "TargetPath": "Views\\Home\\Trigger.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views\\Home\\Campaign.cshtml",
+      "TargetPath": "Views\\Home\\Campaign.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views\\Home\\EditCampaign.cshtml",
+      "TargetPath": "Views\\Home\\EditCampaign.cshtml",
       "FileKind": "mvc"
     },
     {

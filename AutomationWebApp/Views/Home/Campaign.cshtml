@@ -1,0 +1,29 @@
+@model IEnumerable<SharedLibrary.CampaignModel>
+@{
+    ViewData["Title"] = "Campaign page";
+}
+<hr/>
+<a asp-action="CreateCampaign">Create new campaign</a> Or
+<a asp-action="ImportCampaign">Import campaign from excel/csv</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>IsRunning</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+            <tr>
+                <td scope="row">@item.Name</td>
+                <td>@item.IsRunning</td>
+                <td><a asp-action="EditCampaign" asp-route-id="@item.Id">Edit</a> | 
+                    <a asp-action="DeleteCampaign" asp-route-id="@item.Id">Delete</a></td>
+            </tr>
+
+        }
+        
+    </tbody>
+</table>

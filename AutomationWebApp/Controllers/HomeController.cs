@@ -93,6 +93,82 @@ namespace AutomationWebApp.Controllers
             }
             return NotFound();
         }
+        public async Task<IActionResult> Campaign()
+        {
+            var data = await ApiClientFactory.Instance.GetCampaigns();
+            return View(data);
+        }
+        [HttpGet]
+        public ActionResult CreateCampaign()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreateCampaign([Bind("Name, IsRunning")] CampaignModel campaign)
+        {
+            if (ModelState.IsValid)
+            {
+                var respond = await ApiClientFactory.Instance.CreateCampaign(campaign);
+                if (respond != null && respond.IsSuccessStatusCode)
+                {
+                    return RedirectToAction(nameof(Campaign));
+                }
+            }
+            return NotFound();
+        }
+        [HttpGet]
+        public async Task<IActionResult> EditCampaign(int id)
+        {
+            var data = await ApiClientFactory.Instance.GetCampaign(id);
+            if (data != null)
+            {
+                return View(data);
+            }
+            return NotFound();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditCampaign(int Id, [Bind("Id, Name, IsRunning")]CampaignModel campaign)
+        {
+            if (Id != campaign.Id)
+            {
+                return NotFound();
+            }
+            var respond = await ApiClientFactory.Instance.UpdateCampaign(Id, campaign);
+            if (respond != null && respond.IsSuccessStatusCode)
+            {
+                return RedirectToAction(nameof(Campaign));
+            }
+            return NotFound();
+        }
+        [HttpGet]
+        public ActionResult DetailCampaign(CampaignModel model)
+        {
+            return View(model);
+        }
+        [HttpGet]
+        public async Task<IActionResult> DeleteCampaign(int id)
+        {
+            var data = await ApiClientFactory.Instance.GetCampaign(id);
+            if (data != null)
+            {
+                return View(data);
+            }
+            return NotFound();
+        }
+        [HttpPost, ActionName("DeleteCampaign")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteCampaignConfirmed(int id)
+        {
+            var data = await ApiClientFactory.Instance.GetCampaign(id);
+            var respond = await ApiClientFactory.Instance.RemoveCampaign(id);
+            if (respond != null && respond.IsSuccessStatusCode)
+            {
+                return RedirectToAction("DetailCampaign", respond.Content);             
+            }
+            return NotFound();
+        }
         public async Task<IActionResult> Trigger()
         {
             var data = await ApiClientFactory.Instance.GetTriggers();
