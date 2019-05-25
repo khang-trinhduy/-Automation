@@ -33,16 +33,65 @@ namespace AutomationWebApp.Controllers
             var data = await ApiClientFactory.Instance.GetContacts();
             return View(data);
         }
-        
-        public async Task<IActionResult> SaveContact(ContactModel model)
+        [HttpGet]
+        public ActionResult CreateContact()
         {
-            var respond = await ApiClientFactory.Instance.UpdateContact(model.Id, model);
-            return View(nameof(Index));
+            return View();
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreateContact([Bind("Name, Age, PhoneNumber")] ContactModel contact)
+        {
+            if (ModelState.IsValid)
+            {
+                var respond = await ApiClientFactory.Instance.CreateContact(contact);
+                return RedirectToAction(nameof(Contact));
+            }
+            return NotFound();
+        }
+        [HttpGet]
         public async Task<IActionResult> EditContact(int id)
         {
             var data = await ApiClientFactory.Instance.GetContact(id);
             return View(data);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditContact(int? Id, [Bind("Id,Name,Age,PhoneNumber,CampaignId")]ContactModel contact)
+        {
+            if (Id != contact.Id)
+            {
+                return NotFound();
+            }
+            if (ModelState.IsValid)
+            {
+                var respond = await ApiClientFactory.Instance.UpdateContact(contact.Id, contact);
+                return RedirectToAction(nameof(Contact));
+            }
+            return RedirectToAction("EditContact", contact.Id);
+        }
+        [HttpGet]
+        public ActionResult DetailContact(ContactModel model)
+        {
+            return View(model);
+        }
+        [HttpGet]
+        public async Task<IActionResult> DeleteContact(int id)
+        {
+            var data = await ApiClientFactory.Instance.GetContact(id);
+            return View(data);
+        }
+        [HttpPost, ActionName("DeleteContact")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var data = await ApiClientFactory.Instance.GetContact(id);
+            var respond = await ApiClientFactory.Instance.RemoveContact(id);
+            if (respond != null && respond.IsSuccessStatusCode)
+            {
+                return RedirectToAction("DetailContact", respond.Content);             
+            }
+            return NotFound();
         }
         public async Task<IActionResult> Trigger()
         {

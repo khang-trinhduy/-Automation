@@ -1,0 +1,31 @@
+@model SharedLibrary.ContactModel
+@{
+    ViewData["Title"] = "Detail contact";
+}
+<h4>The following contact has been removed</h4>
+<div class="form-group" hidden>
+  <label for="">Id</label>
+  <input type="text" name="Id" asp-for="Id" class="form-control" placeholder="" aria-describedby="helpId">
+  <small id="helpId" class="text-muted">Help text</small>
+</div>
+<div class="form-group">
+  <label for="">Name</label>
+  <input type="text" name="Name" asp-for="Name" class="form-control" placeholder="" aria-describedby="helpId">
+  <small id="helpId" class="text-muted">Help text</small>
+</div>
+<div class="form-group">
+  <label for="">Age</label>
+  <input type="number" name="Age" asp-for="Age" class="form-control" placeholder="" aria-describedby="helpId">
+  <small id="helpId" class="text-muted">Help text</small>
+</div>
+<div class="form-group">
+  <label for="">Phone number</label>
+  <input type="text" name="PhoneNumber" asp-for="PhoneNumber" class="form-control" placeholder="" aria-describedby="helpId">
+  <small id="helpId" class="text-muted">Help text</small>
+</div>
+<div class="form-group">
+  <label for="">CampaignId</label>
+  <input type="text" name="CampaignId" asp-for="CampaignId" class="form-control" placeholder="" aria-describedby="helpId">
+  <small id="helpId" class="text-muted">Help text</small>
+</div>
+<a asp-action="Contact">Back to contact page</a>

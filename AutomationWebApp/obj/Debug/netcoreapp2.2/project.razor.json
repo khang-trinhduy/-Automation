@@ -2769,6 +2769,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Views\\Home\\CreateContact.cshtml",
+      "TargetPath": "Views\\Home\\CreateContact.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Views\\Home\\Privacy.cshtml",
       "TargetPath": "Views\\Home\\Privacy.cshtml",
       "FileKind": "mvc"
@@ -2776,6 +2781,11 @@
     {
       "FilePath": "Views\\_ViewImports.cshtml",
       "TargetPath": "Views\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views\\Home\\DetailContact.cshtml",
+      "TargetPath": "Views\\Home\\DetailContact.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -2801,6 +2811,11 @@
     {
       "FilePath": "Views\\Home\\Trigger.cshtml",
       "TargetPath": "Views\\Home\\Trigger.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views\\Home\\DeleteContact.cshtml",
+      "TargetPath": "Views\\Home\\DeleteContact.cshtml",
       "FileKind": "mvc"
     },
     {

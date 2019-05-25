@@ -1,30 +1,32 @@
 @model SharedLibrary.ContactModel
-
-<form action="SaveContact" method="post">
+@{
+  ViewData["Title"] = "Edit contact";
+}
+<form asp-action="EditContact">
     <div class="form-group" hidden>
       <label for=""></label>
-      <input asp-for="@Model.Id" type="text" name="" id="" class="form-control" placeholder="" aria-describedby="helpId">
-      <small id="helpId" class="text-muted">Help text</small>
+      <input asp-for="Id" type="text" name="Id" class="form-control" placeholder=""/>
+      <small class="text-muted">Help text</small>
     </div>
     <div class="form-group">
       <label for="">Name</label>
-      <input asp-for="@Model.Name" type="text" name="" id="" class="form-control" placeholder="" aria-describedby="helpId">
-      <small id="helpId" class="text-muted">Required</small>
+      <input asp-for="Name" type="text" name="Name" class="form-control" placeholder=""/>
+      <small class="text-muted">Required</small>
     </div>
     <div class="form-group">
       <label for="">Age</label>
-      <input asp-for="@Model.Age" type="number" min="0" max="100" name="" id="" class="form-control" placeholder="" aria-describedby="helpId">
-      <small id="helpId" class="text-muted">Required</small>
+      <input asp-for="Age" type="number" min="0" max="100" name="Age" class="form-control" placeholder=""/>
+      <small class="text-muted">Required</small>
     </div>
     <div class="form-group">
       <label for="">Phone number</label>
-      <input asp-for="@Model.PhoneNumber" type="text" name="" id="" class="form-control" placeholder="" aria-describedby="helpId">
-      <small id="helpId" class="text-muted">Required</small>
+      <input asp-for="PhoneNumber" type="text" name="PhoneNumber" class="form-control" placeholder=""/>
+      <small class="text-muted">Required</small>
     </div>
     <div class="form-group">
       <label for="">CampaignId</label>
-      <input readonly asp-for="@Model.CampaignId" type="number" name="" id="" class="form-control" placeholder="" aria-describedby="helpId">
-      <small id="helpId" class="text-muted">Optional</small>
+      <input readonly asp-for="CampaignId" type="number" name="CampaignId" class="form-control" placeholder=""/>
+      <small class="text-muted">Optional</small>
     </div>
-    <button type="submit" class="btn btn-primary">Save</button>
+    <button type="submit" name="submit" class="btn btn-primary">Save</button>
 </form>

@@ -20,11 +20,23 @@ namespace Adapter
                 "Contacts/" + id.ToString()));
             return await GetAsync<ContactModel>(requestUrl);
         }
+        public async Task<Message<ContactModel>> CreateContact(ContactModel model)
+        {
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "Contacts/"));
+            return await PostAsync<ContactModel>(requestUrl, model);
+        }
         public async Task<Message<ContactModel>> UpdateContact(int id, ContactModel model)
         {
            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
                 "Contacts/" + id.ToString()));
             return await PutAsync<ContactModel>(requestUrl, model);
+        }
+        public async Task<Message<ContactModel>> RemoveContact(int id)
+        {
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "Contacts/" + id.ToString()));
+            return await DeleteAsync<ContactModel>(requestUrl);
         }
         public async Task<List<CampaignModel>> GetCampaigns()
         {

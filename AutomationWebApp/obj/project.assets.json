@@ -4456,6 +4456,9 @@
       "sharedlibrary/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "newtonsoft.json": "12.0.2"
+        },
         "compile": {
           "bin/placeholder/sharedlibrary.dll": {}
         },

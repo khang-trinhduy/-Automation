@@ -1,0 +1,36 @@
+@model SharedLibrary.ContactModel
+@{
+  ViewData["Title"] = "Delete contact";
+}
+<div class="form-group" hidden>
+  <label for="">Id</label>
+  <input type="text" name="Id" asp-for="Id" class="form-control" placeholder="" aria-describedby="helpId">
+  <small id="helpId" class="text-muted">Help text</small>
+</div>
+<div class="form-group">
+  <label for="">Name</label>
+  <input type="text" name="Name" asp-for="Name" class="form-control" placeholder="" aria-describedby="helpId">
+  <small id="helpId" class="text-muted">Help text</small>
+</div>
+<div class="form-group">
+  <label for="">Age</label>
+  <input type="number" name="Age" asp-for="Age" class="form-control" placeholder="" aria-describedby="helpId">
+  <small id="helpId" class="text-muted">Help text</small>
+</div>
+<div class="form-group">
+  <label for="">Phone number</label>
+  <input type="text" name="PhoneNumber" asp-for="PhoneNumber" class="form-control" placeholder="" aria-describedby="helpId">
+  <small id="helpId" class="text-muted">Help text</small>
+</div>
+<div class="form-group">
+  <label for="">CampaignId</label>
+  <input type="text" name="CampaignId" asp-for="CampaignId" class="form-control" placeholder="" aria-describedby="helpId">
+  <small id="helpId" class="text-muted">Help text</small>
+</div>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <div>
+        <button class="btn btn-danger" type="submit" value="Delete">Delete</button>
+        <a asp-action="Contact">Back to list</a>
+    </div>
+}

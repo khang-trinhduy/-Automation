@@ -1,4 +1,10 @@
 @model IEnumerable<SharedLibrary.ContactModel>
+@{
+    ViewData["Title"] = "Contact page";
+}
+<hr/>
+<a asp-action="CreateContact">Create new contact</a> Or
+<a asp-action="ImportContact">Import contact from excel/csv</a>
 <table class="table">
     <thead>
         <tr>
@@ -19,11 +25,9 @@
                 <td>@item.CampaignId</td>
                 <td>
                     <a asp-action="EditContact" asp-route-id="@item.Id">Edit</a>
-                    | <a asp-action="DeteleContact" asp-route-id="@item.Id">Delete</a>
+                    | <a asp-action="DeleteContact" asp-route-id="@item.Id">Delete</a>
                 </td>
             </tr>
-
         }
-        
     </tbody>
 </table>

@@ -32,12 +32,26 @@ namespace Adapter
             var data = await respond.Content.ReadAsStringAsync();
             return JsonConvert.DeserializeObject<T>(data);
         }
+        private async Task<Message<T>> PostAsync<T>(Uri requestUrl, T content)
+        {
+            var respond = await _httpClient.PostAsync(requestUrl.ToString(), CreateHttpContent(content));
+            respond.EnsureSuccessStatusCode();
+            var data = await respond.Content.ReadAsStringAsync();
+            return JsonConvert.DeserializeObject<Message<T>>(data);
+        }
         private async Task<Message<T>> PutAsync<T>(Uri requestUrl, T content)
         {
             var respond = await _httpClient.PutAsync(requestUrl.ToString(), CreateHttpContent(content));
             respond.EnsureSuccessStatusCode();
-            var data = await respond.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<Message<T>>(data);
+            var message = Message<T>.CreateMessage(respond);
+            return message;
+        }
+        private async Task<Message<T>> DeleteAsync<T>(Uri requestUrl)
+        {
+            var respond = await _httpClient.DeleteAsync(requestUrl);
+            respond.EnsureSuccessStatusCode();
+            var message = Message<T>.CreateMessage(respond);
+            return message;
         }
         private HttpContent CreateHttpContent<T>(T content)
         {
