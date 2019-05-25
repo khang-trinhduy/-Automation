@@ -1,0 +1,35 @@
+@model SharedLibrary.MetadataModel;
+@{
+    ViewData["title"] = "Delete metadata";
+}
+
+<div class="container">
+    <form>
+        <div class="form-group row">
+            <label asp-for="Table" class="col-sm-1-12 col-form-label">Table</label>
+            <div class="col-sm-1-12">
+                <input asp-for="Table" type="text" class="form-control" name="Table" id="Table" placeholder="">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="Field" class="col-sm-1-12 col-form-label">Field</label>
+            <div class="col-sm-1-12">
+                <input asp-for="Field" type="text" class="form-control" name="Field" id="Field" placeholder="">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="Type" class="col-sm-1-12 col-form-label">Type</label>
+            <div class="col-sm-1-12">
+                <input asp-for="Type" type="text" class="form-control" name="Type" id="Type" placeholder="">
+            </div>
+        </div>
+    </form>
+</div>
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    <div>
+        <button value="delete" type="submit" class="btn btn-danger">Delete</button>
+        <a asp-action="Metadata">Back to list</a>
+    </div>
+}

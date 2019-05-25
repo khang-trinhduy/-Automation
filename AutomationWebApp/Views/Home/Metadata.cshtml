@@ -1,0 +1,31 @@
+@model IEnumerable<SharedLibrary.MetadataModel>
+@{
+    ViewData["Title"] = "Metadata page";
+}
+<hr/>
+<a asp-action="CreateMetadata">Create new metadata</a> Or
+<a asp-action="ImportMetadata">Import metadata from excel/csv</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Table</th>
+            <th>Field</th>
+            <th>Type</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+            <tr>
+                <td scope="row">@item.Table</td>
+                <td>@item.Field</td>
+                <td>@item.Type</td>
+                <td><a asp-action="EditMetadata" asp-route-id="@item.Id">Edit</a> | 
+                    <a asp-action="DeleteMetadata" asp-route-id="@item.Id">Delete</a></td>
+            </tr>
+
+        }
+        
+    </tbody>
+</table>

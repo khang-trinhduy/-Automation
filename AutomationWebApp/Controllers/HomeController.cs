@@ -410,5 +410,81 @@ namespace AutomationWebApp.Controllers
             }
             return NotFound();
         }
+        public async Task<IActionResult> Metadata()
+        {
+            var data = await ApiClientFactory.Instance.GetMetadatas();
+            return View(data);
+        }
+        [HttpGet]
+        public ActionResult CreateMetadata()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreateMetadata([Bind("Type, Table, Field")] MetadataModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var respond = await ApiClientFactory.Instance.CreateMetadata(model);
+                if (respond != null && respond.IsSuccessStatusCode)
+                {
+                    return RedirectToAction(nameof(Metadata));
+                }
+            }
+            return NotFound();
+        }
+        [HttpGet]
+        public async Task<IActionResult> EditMetadata(int id)
+        {
+            var data = await ApiClientFactory.Instance.GetMetadata(id);
+            if (data != null)
+            {
+                return View(data);
+            }
+            return NotFound();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditMetadata(int Id, [Bind("Id, Type, Table, Field")]MetadataModel model)
+        {
+            if (Id != model.Id)
+            {
+                return NotFound();
+            }
+            var respond = await ApiClientFactory.Instance.UpdateMetadata(Id, model);
+            if (respond != null && respond.IsSuccessStatusCode)
+            {
+                return RedirectToAction(nameof(Metadata));
+            }
+            return NotFound();
+        }
+        [HttpGet]
+        public ActionResult DetailMetadata(MetadataModel model)
+        {
+            return View(model);
+        }
+        [HttpGet]
+        public async Task<IActionResult> DeleteMetadata(int id)
+        {
+            var data = await ApiClientFactory.Instance.GetMetadata(id);
+            if (data != null)
+            {
+                return View(data);
+            }
+            return NotFound();
+        }
+        [HttpPost, ActionName("DeleteMetadata")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteMetadataConfirmed(int id)
+        {
+            var data = await ApiClientFactory.Instance.GetMetadata(id);
+            var respond = await ApiClientFactory.Instance.RemoveMetadata(id);
+            if (respond != null && respond.IsSuccessStatusCode)
+            {
+                return RedirectToAction("DetailMetadata", respond.Content);
+            }
+            return NotFound();
+        }
     }
 }

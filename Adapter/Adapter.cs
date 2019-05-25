@@ -158,5 +158,35 @@ namespace Adapter
                 "Conditions/" + id.ToString()));
             return await DeleteAsync<ConditionModel>(requestUrl);
         }
+        public async Task<List<MetadataModel>> GetMetadatas()
+        {
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "Metadatas"));
+            return await GetAsync<List<MetadataModel>>(requestUrl);
+        }
+        public async Task<MetadataModel> GetMetadata(int id)
+        {
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "Metadatas/" + id.ToString()));
+            return await GetAsync<MetadataModel>(requestUrl);
+        }
+        public async Task<Message<MetadataModel>> CreateMetadata(MetadataModel model)
+        {
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "Metadatas/"));
+            return await PostAsync<MetadataModel>(requestUrl, model);
+        }
+        public async Task<Message<MetadataModel>> UpdateMetadata(int id, MetadataModel model)
+        {
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "Metadatas/" + id.ToString()));
+            return await PutAsync<MetadataModel>(requestUrl, model);
+        }
+        public async Task<Message<MetadataModel>> RemoveMetadata(int id)
+        {
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "Metadatas/" + id.ToString()));
+            return await DeleteAsync<MetadataModel>(requestUrl);
+        }
     }
 }

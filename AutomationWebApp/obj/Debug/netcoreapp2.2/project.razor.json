@@ -2764,6 +2764,16 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Views\\Home\\CreateMetadata.cshtml",
+      "TargetPath": "Views\\Home\\CreateMetadata.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views\\Home\\Metadata.cshtml",
+      "TargetPath": "Views\\Home\\Metadata.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Views\\Home\\DetailAction.cshtml",
       "TargetPath": "Views\\Home\\DetailAction.cshtml",
       "FileKind": "mvc"
@@ -2829,6 +2839,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Views\\Home\\DetailMetadata.cshtml",
+      "TargetPath": "Views\\Home\\DetailMetadata.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Views\\_ViewStart.cshtml",
       "TargetPath": "Views\\_ViewStart.cshtml",
       "FileKind": "mvc"
@@ -2879,6 +2894,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Views\\Home\\EditMetadata.cshtml",
+      "TargetPath": "Views\\Home\\EditMetadata.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Views\\Home\\Action.cshtml",
       "TargetPath": "Views\\Home\\Action.cshtml",
       "FileKind": "mvc"
@@ -2916,6 +2936,11 @@
     {
       "FilePath": "Views\\Home\\Condition.cshtml",
       "TargetPath": "Views\\Home\\Condition.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views\\Home\\DeleteMEtadata.cshtml",
+      "TargetPath": "Views\\Home\\DeleteMEtadata.cshtml",
       "FileKind": "mvc"
     },
     {
