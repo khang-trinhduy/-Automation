@@ -98,5 +98,35 @@ namespace Adapter
                 "Triggers/" + id.ToString()));
             return await DeleteAsync<TriggerModel>(requestUrl);
         }
+        public async Task<List<ActionModel>> GetActions()
+        {
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "Actions"));
+            return await GetAsync<List<ActionModel>>(requestUrl);
+        }
+        public async Task<ActionModel> GetAction(int id)
+        {
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "Actions/" + id.ToString()));
+            return await GetAsync<ActionModel>(requestUrl);
+        }
+        public async Task<Message<ActionModel>> CreateAction(ActionModel model)
+        {
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "Actions/"));
+            return await PostAsync<ActionModel>(requestUrl, model);
+        }
+        public async Task<Message<ActionModel>> UpdateAction(int id, ActionModel model)
+        {
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "Actions/" + id.ToString()));
+            return await PutAsync<ActionModel>(requestUrl, model);
+        }
+        public async Task<Message<ActionModel>> RemoveAction(int id)
+        {
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "Actions/" + id.ToString()));
+            return await DeleteAsync<ActionModel>(requestUrl);
+        }
     }
 }

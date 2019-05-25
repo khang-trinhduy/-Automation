@@ -47,3 +47,8 @@ C:\Users\trinh\source\WTF\API\Automation\AutomationWebApp\obj\Debug\netcoreapp2.
 C:\Users\trinh\source\WTF\API\Automation\AutomationWebApp\obj\Debug\netcoreapp2.2\Razor\Views\Home\DeleteTrigger.g.cshtml.cs
 C:\Users\trinh\source\WTF\API\Automation\AutomationWebApp\obj\Debug\netcoreapp2.2\Razor\Views\Home\DetailTrigger.g.cshtml.cs
 C:\Users\trinh\source\WTF\API\Automation\AutomationWebApp\obj\Debug\netcoreapp2.2\Razor\Views\Home\EditTrigger.g.cshtml.cs
+C:\Users\trinh\source\WTF\API\Automation\AutomationWebApp\obj\Debug\netcoreapp2.2\Razor\Views\Home\Action.g.cshtml.cs
+C:\Users\trinh\source\WTF\API\Automation\AutomationWebApp\obj\Debug\netcoreapp2.2\Razor\Views\Home\CreateAction.g.cshtml.cs
+C:\Users\trinh\source\WTF\API\Automation\AutomationWebApp\obj\Debug\netcoreapp2.2\Razor\Views\Home\DeleteAction.g.cshtml.cs
+C:\Users\trinh\source\WTF\API\Automation\AutomationWebApp\obj\Debug\netcoreapp2.2\Razor\Views\Home\DetailAction.g.cshtml.cs
+C:\Users\trinh\source\WTF\API\Automation\AutomationWebApp\obj\Debug\netcoreapp2.2\Razor\Views\Home\EditAction.g.cshtml.cs

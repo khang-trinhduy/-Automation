@@ -258,6 +258,81 @@ namespace AutomationWebApp.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-
+        public async Task<IActionResult> Action()
+        {
+            var data = await ApiClientFactory.Instance.GetActions();
+            return View(data);
+        }
+        [HttpGet]
+        public ActionResult CreateAction()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreateAction([Bind("Type, Value")] ActionModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var respond = await ApiClientFactory.Instance.CreateAction(model);
+                if (respond != null && respond.IsSuccessStatusCode)
+                {
+                    return RedirectToAction(nameof(Action));
+                }
+            }
+            return NotFound();
+        }
+        [HttpGet]
+        public async Task<IActionResult> EditAction(int id)
+        {
+            var data = await ApiClientFactory.Instance.GetAction(id);
+            if (data != null)
+            {
+                return View(data);
+            }
+            return NotFound();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditAction(int Id, [Bind("Id, Type, Value")]ActionModel model)
+        {
+            if (Id != model.Id)
+            {
+                return NotFound();
+            }
+            var respond = await ApiClientFactory.Instance.UpdateAction(Id, model);
+            if (respond != null && respond.IsSuccessStatusCode)
+            {
+                return RedirectToAction(nameof(Action));
+            }
+            return NotFound();
+        }
+        [HttpGet]
+        public ActionResult DetailAction(ActionModel model)
+        {
+            return View(model);
+        }
+        [HttpGet]
+        public async Task<IActionResult> DeleteAction(int id)
+        {
+            var data = await ApiClientFactory.Instance.GetAction(id);
+            if (data != null)
+            {
+                return View(data);
+            }
+            return NotFound();
+        }
+        [HttpPost, ActionName("DeleteAction")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteActionConfirmed(int id)
+        {
+            var data = await ApiClientFactory.Instance.GetAction(id);
+            var respond = await ApiClientFactory.Instance.RemoveAction(id);
+            if (respond != null && respond.IsSuccessStatusCode)
+            {
+                return RedirectToAction("DetailAction", respond.Content);
+            }
+            return NotFound();
+        }
     }
 }
