@@ -195,7 +195,7 @@ namespace Adapter
         public async Task<Message<ConditionModel>> SetConditionMeta(int id, MetadataModel model)
         {
             var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
-                "Conditions/setmeta" + id.ToString()));
+                "Conditions/setmeta/" + id.ToString()));
             return await PutAsync<ConditionModel, MetadataModel>(requestUrl, model);
         }
         public async Task<List<MetadataModel>> GetMetadatas()

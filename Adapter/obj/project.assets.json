@@ -300,5 +300,13 @@
         "warn": true
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\trinh\\source\\WTF\\API\\Automation\\adapter\\obj\\adapter.csproj.nuget.cache : Found invalid data while decoding."
+    }
+  ]
 }

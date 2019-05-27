@@ -404,10 +404,11 @@ namespace AutomationWebApp.Controllers
                 return NotFound();
             }
             var metas = await ApiClientFactory.Instance.GetMetadatas();
-            ActionMeta model = new ActionMeta {Action = data, Metadatas = metas};
+            ActionMeta model = new ActionMeta { Action = data, Metadatas = metas };
             return View(model);
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> SetActionMeta(int id, [Bind("Field, Type, Table")]MetadataModel model)
         {
             var data = await ApiClientFactory.Instance.GetAction(id);
@@ -500,7 +501,30 @@ namespace AutomationWebApp.Controllers
             }
             return NotFound();
         }
+        [HttpGet]
+        public async Task<IActionResult> SetConditionMeta(int id)
+        {
+            var data = await ApiClientFactory.Instance.GetCondition(id);
+            if (data == null)
+            {
+                return NotFound();
+            }
+            var metas = await ApiClientFactory.Instance.GetMetadatas();
+            var model = new ConditionMeta {Condition = data, Metadatas = metas};
+            return View(model);
 
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> SetConditionMeta(int id, [Bind("Table, Field, Type")] MetadataModel model)
+        {
+            var respond = await ApiClientFactory.Instance.SetConditionMeta(id, model);
+            if (respond != null && respond.IsSuccessStatusCode)
+            {
+                return RedirectToAction(nameof(Condition));
+            }
+            return NotFound();
+        }
         #endregion
         #region METAdata
         public async Task<IActionResult> Metadata()

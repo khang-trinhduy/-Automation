@@ -1,0 +1,67 @@
+@model AutomationWebApp.Models.ConditionMeta;
+@{
+    ViewData["title"] = "Condition meta";
+}
+<div class="container">
+    <form asp-action="SetConditionMeta">
+        <div class="form-group row">
+            <label for="" class="col-sm-1-12 col-form-label">Operator</label>
+            <div class="col-sm-1-12">
+                <input value="@Model.Condition.Operator" type="text" class="form-control" name="Operator" id="Operator" placeholder="">
+            </div>
+        </div>
+        
+        <div class="form-group row">
+            <label for="" class="col-sm-1-12 col-form-label">Threshold</label>
+            <div class="col-sm-1-12">
+                <input value="@Model.Condition.Threshold" type="text" class="form-control" name="Threshold" id="Threshold" placeholder="">
+            </div>
+        </div>
+        
+        <div class="form-group row">
+            <label class="col-sm-1-12 col-form-label">Type</label>
+            <div class="col-sm-1-12">
+                <input value="@Model.Condition.Type" type="text" class="form-control" placeholder="">
+            </div>
+        </div>
+        <div class="form-group">
+          <label for="">Metadata</label>
+          <select class="form-control" name="" id="Metadata">
+            <option value="">Choose one</option>
+            @foreach (var item in Model.Metadatas)
+            {
+                <option value="@item.Id">@item.Id</option>
+            }
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="">Field</label>
+          <input type="text" name="Field" id="Field" class="form-control" placeholder="" aria-describedby="helpId">
+          <small id="helpId" class="text-muted">Help text</small>
+        </div>
+        <div class="form-group">
+          <label for="">Type</label>
+          <input type="text" name="Type" id="Type" class="form-control" placeholder="" aria-describedby="helpId">
+          <small id="helpId" class="text-muted">Help text</small>
+        </div>
+        <div class="form-group">
+          <label for="">Table</label>
+          <input type="text" name="Table" id="Table" class="form-control" placeholder="" aria-describedby="helpId">
+          <small id="helpId" class="text-muted">Help text</small>
+        </div>
+        <div class="form-group row">
+            <div class="offset-sm-2 col-sm-10">
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+    </form>
+</div>
+<script>
+    var metas = JSON.parse('@Html.Raw(Json.Serialize(Model.Metadatas))');
+    $('#Metadata').change(function(){
+        var meta = metas.find(m => m.Id === parseInt($(this).val()));
+        $('#Type').val(meta.Type);
+        $('#Field').val(meta.Field);
+        $('#Table').val(meta.Table);
+    });
+</script>
