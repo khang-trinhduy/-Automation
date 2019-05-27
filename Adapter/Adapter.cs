@@ -159,7 +159,7 @@ namespace Adapter
         public async Task<Message<ActionModel>> SetActionMeta(int id, MetadataModel model)
         {
             var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
-                "Actions/setmeta" + id.ToString()));
+                "Actions/setmeta/" + id.ToString()));
             return await PutAsync<ActionModel, MetadataModel>(requestUrl, model);
         }
         public async Task<List<ConditionModel>> GetConditions()

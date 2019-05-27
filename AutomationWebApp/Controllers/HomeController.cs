@@ -395,7 +395,33 @@ namespace AutomationWebApp.Controllers
             }
             return NotFound();
         }
-
+        [HttpGet]
+        public async Task<IActionResult> SetActionMeta(int id)
+        {
+            var data = await ApiClientFactory.Instance.GetAction(id);
+            if (data == null)
+            {
+                return NotFound();
+            }
+            var metas = await ApiClientFactory.Instance.GetMetadatas();
+            ActionMeta model = new ActionMeta {Action = data, Metadatas = metas};
+            return View(model);
+        }
+        [HttpPost]
+        public async Task<IActionResult> SetActionMeta(int id, [Bind("Field, Type, Table")]MetadataModel model)
+        {
+            var data = await ApiClientFactory.Instance.GetAction(id);
+            if (data == null)
+            {
+                return NotFound();
+            }
+            var respond = await ApiClientFactory.Instance.SetActionMeta(id, model);
+            if (respond != null && respond.IsSuccessStatusCode)
+            {
+                return RedirectToAction(nameof(Action));
+            }
+            return View();
+        }
         #endregion
         #region Condition
         public async Task<IActionResult> Condition()
