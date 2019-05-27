@@ -2829,6 +2829,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Views\\Home\\SetAction.cshtml",
+      "TargetPath": "Views\\Home\\SetAction.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Views\\Home\\DetailCondition.cshtml",
       "TargetPath": "Views\\Home\\DetailCondition.cshtml",
       "FileKind": "mvc"
@@ -2939,8 +2944,8 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Views\\Home\\DeleteMEtadata.cshtml",
-      "TargetPath": "Views\\Home\\DeleteMEtadata.cshtml",
+      "FilePath": "Views\\Home\\DeleteMetadata.cshtml",
+      "TargetPath": "Views\\Home\\DeleteMetadata.cshtml",
       "FileKind": "mvc"
     },
     {

@@ -46,6 +46,13 @@ namespace Adapter
             var message = Message<T>.CreateMessage(respond);
             return message;
         }
+        private async Task<Message<T1>> PutAsync<T1, T2>(Uri requestUrl, T2 content)
+        {
+            var respond = await _httpClient.PutAsync(requestUrl.ToString(), CreateHttpContent(content));
+            respond.EnsureSuccessStatusCode();
+            var message = Message<T1>.CreateMessage(respond);
+            return message;
+        }
         private async Task<Message<T>> DeleteAsync<T>(Uri requestUrl)
         {
             var respond = await _httpClient.DeleteAsync(requestUrl);
@@ -65,6 +72,20 @@ namespace Adapter
             var uriBuilder = new UriBuilder(endpoint);
             uriBuilder.Query = queryString;
             return uriBuilder.Uri;
+        }
+        private string CreateQuery(object obj)
+        {
+            if (obj == null)
+            {
+                return "";
+            }
+            string query = "?";
+            foreach (var param in obj.GetType().GetProperties())
+            {
+                query += param.Name + "=" + param.GetValue(obj) + "&";
+            }
+            query = query.Substring(0, query.Length - 1);
+            return query;
         }
     }
 }

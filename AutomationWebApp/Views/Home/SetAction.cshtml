@@ -1,0 +1,74 @@
+@model AutomationWebApp.Models.TriggerAction;
+@{
+    ViewData["title"] = "Set action";
+}
+<div class="container">
+    <form asp-action="SetAction">
+        <div class="form-group row" hidden>
+            <label asp-for="@Model.Trigger.Id" class="col-sm-1-12 col-form-label">Id</label>
+            <div class="col-sm-1-12">
+                <input asp-for="@Model.Trigger.Id" type="text" class="form-control" name="Id" id="Id" placeholder="Title">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="@Model.Trigger.Title" class="col-sm-1-12 col-form-label">Title</label>
+            <div class="col-sm-1-12">
+                <input asp-for="@Model.Trigger.Title" type="text" class="form-control" name="Title" id="Title" placeholder="Title">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="@Model.Trigger.Description" class="col-sm-1-12 col-form-label">Description</label>
+            <div class="col-sm-1-12">
+                <input asp-for="@Model.Trigger.Description" type="text" class="form-control" name="Description" id="Description" placeholder="Description">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="@Model.Trigger.IsNotActive" class="col-sm-1-12 col-form-label">IsNotActive</label>
+            <div class="col-sm-1-12">
+                <input asp-for="@Model.Trigger.IsNotActive" type="checkbox" class="form-control" name="IsNotActive" id="IsNotActive" placeholder="IsNotActive">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="@Model.Trigger.Position" class="col-sm-1-12 col-form-label">Position</label>
+            <div class="col-sm-1-12">
+                <input asp-for="@Model.Trigger.Position" type="number" class="form-control" name="Position" id="Position" placeholder="Position">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="@Model.Trigger.Table" class="col-sm-1-12 col-form-label">Table</label>
+            <div class="col-sm-1-12">
+                <input asp-for="@Model.Trigger.Table" type="text" class="form-control" name="Table" id="Table" placeholder="Table">
+            </div>
+        </div>
+        <div class="form-group">
+          <label for="Action">Action</label>
+          <select class="form-control" name="Action" id="Action">
+              <option value="">Choose one</option>
+            @foreach (var item in Model.Actions)
+            {
+                <option value="@item.Id">@item.Id</option>
+            }
+          </select>
+        </div>
+        <div class="form-group">
+          <label id="TypeLabel">Action's type</label>
+          <input type="text" name="Type" id="Type" class="form-control" placeholder="" aria-describedby="">
+        </div>
+        <div class="form-group">
+          <label id="ValueLabel">Action's value</label>
+          <input type="text" name="Value" id="Value" class="form-control" placeholder="" aria-describedby="">
+        </div>
+        <div class="form-group row">
+            <div class="offset-sm-2 col-sm-10">
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+    </form>
+</div>
+<script>
+    var actions = JSON.parse('@Html.Raw(Json.Serialize(Model.Actions))');
+    $('#Action').change(function () {
+        $('#Type').val(actions.find(a => a.Id === parseInt($(this).val())).Type);
+        $('#Value').val(actions.find(a => a.Id === parseInt($(this).val())).Value);
+    })
+</script>

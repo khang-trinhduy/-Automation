@@ -98,10 +98,27 @@ namespace Adapter
                 "Triggers/" + id.ToString()));
             return await DeleteAsync<TriggerModel>(requestUrl);
         }
+        public async Task<Message<TriggerModel>> SetAction(int id, ActionModel model)
+        {
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "Triggers/setaction/"+ id.ToString()));
+            return await PutAsync<TriggerModel, ActionModel>(requestUrl, model);
+        }
+        public async Task<List<ActionModel>> GetActions(object queries)
+        {
+            string query = CreateQuery(queries);
+            if (query == "" || query == "?")
+            {
+                throw new Exception(nameof(queries));
+            }
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "Actions/"), query);
+            return await GetAsync<List<ActionModel>>(requestUrl);
+        }
         public async Task<List<ActionModel>> GetActions()
         {
             var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
-                "Actions"));
+                "Actions/"));
             return await GetAsync<List<ActionModel>>(requestUrl);
         }
         public async Task<ActionModel> GetAction(int id)

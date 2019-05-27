@@ -27,6 +27,17 @@ namespace AutomationWebApp.Controllers
         {
             return View();
         }
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+        public IActionResult Privacy()
+        {
+            return View();
+        }
+
+        #region Contact  
 
         public async Task<IActionResult> Contact()
         {
@@ -93,6 +104,8 @@ namespace AutomationWebApp.Controllers
             }
             return NotFound();
         }
+        #endregion
+        #region Campaign
         public async Task<IActionResult> Campaign()
         {
             var data = await ApiClientFactory.Instance.GetCampaigns();
@@ -169,6 +182,8 @@ namespace AutomationWebApp.Controllers
             }
             return NotFound();
         }
+        #endregion
+        #region Trigger
         public async Task<IActionResult> Trigger()
         {
             var data = await ApiClientFactory.Instance.GetTriggers();
@@ -233,7 +248,7 @@ namespace AutomationWebApp.Controllers
         public async Task<IActionResult> DeleteTriggerConfirmed(int id)
         {
             var respond = await ApiClientFactory.Instance.RemoveTrigger(id);
-            if(respond != null && respond.IsSuccessStatusCode)
+            if (respond != null && respond.IsSuccessStatusCode)
             {
                 return RedirectToAction("DetailTrigger", respond.Content);
             }
@@ -242,22 +257,41 @@ namespace AutomationWebApp.Controllers
         [HttpGet]
         public async Task<IActionResult> DetailTrigger(TriggerModel model)
         {
-            if(model != null)
+            if (model != null)
             {
                 return View(model);
             }
             return NotFound();
         }
-        public IActionResult Privacy()
+        [HttpGet]
+        public async Task<IActionResult> SetAction(int id)
         {
+            var data = await ApiClientFactory.Instance.GetTrigger(id);
+            if (data == null)
+            { return NotFound(); }
+            var actions = await ApiClientFactory.Instance.GetActions(new { available = true });
+            var model = new TriggerAction { Trigger = data, Actions = actions };
+            return View(model);
+
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> SetAction(int id, [Bind("Value, Type")] ActionModel model)
+        {
+            var data = await ApiClientFactory.Instance.GetTrigger(id);
+            if (data == null)
+            {
+                return NotFound();
+            }
+            var respond = await ApiClientFactory.Instance.SetAction(id, model);
+            if (respond != null && respond.IsSuccessStatusCode)
+            {
+                return RedirectToAction(nameof(Trigger));
+            }
             return View();
         }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+        #endregion
+        #region Action
         public async Task<IActionResult> Action()
         {
             var data = await ApiClientFactory.Instance.GetActions();
@@ -334,6 +368,9 @@ namespace AutomationWebApp.Controllers
             }
             return NotFound();
         }
+
+        #endregion
+        #region Condition
         public async Task<IActionResult> Condition()
         {
             var data = await ApiClientFactory.Instance.GetConditions();
@@ -410,6 +447,9 @@ namespace AutomationWebApp.Controllers
             }
             return NotFound();
         }
+
+        #endregion
+        #region METAdata
         public async Task<IActionResult> Metadata()
         {
             var data = await ApiClientFactory.Instance.GetMetadatas();
@@ -486,5 +526,7 @@ namespace AutomationWebApp.Controllers
             }
             return NotFound();
         }
+
+        #endregion
     }
 }
