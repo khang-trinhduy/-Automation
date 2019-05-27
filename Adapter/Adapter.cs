@@ -104,6 +104,17 @@ namespace Adapter
                 "Triggers/setaction/"+ id.ToString()));
             return await PutAsync<TriggerModel, ActionModel>(requestUrl, model);
         }
+        public async Task<Message<TriggerModel>> SetCondition(int id, ConditionModel model, object queries)
+        {
+            string query = CreateQuery(queries);
+            if (query == "" || query == "&")
+            {
+                throw new Exception(nameof(queries));
+            }
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "Triggers/setcondition/" + id.ToString()), query);
+            return await PutAsync<TriggerModel, ConditionModel>(requestUrl, model);
+        }
         public async Task<List<ActionModel>> GetActions(object queries)
         {
             string query = CreateQuery(queries);
@@ -145,6 +156,12 @@ namespace Adapter
                 "Actions/" + id.ToString()));
             return await DeleteAsync<ActionModel>(requestUrl);
         }
+        public async Task<Message<ActionModel>> SetActionMeta(int id, MetadataModel model)
+        {
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "Actions/setmeta" + id.ToString()));
+            return await PutAsync<ActionModel, MetadataModel>(requestUrl, model);
+        }
         public async Task<List<ConditionModel>> GetConditions()
         {
             var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
@@ -174,6 +191,12 @@ namespace Adapter
             var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
                 "Conditions/" + id.ToString()));
             return await DeleteAsync<ConditionModel>(requestUrl);
+        }
+        public async Task<Message<ConditionModel>> SetConditionMeta(int id, MetadataModel model)
+        {
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "Conditions/setmeta" + id.ToString()));
+            return await PutAsync<ConditionModel, MetadataModel>(requestUrl, model);
         }
         public async Task<List<MetadataModel>> GetMetadatas()
         {

@@ -1,0 +1,87 @@
+@model AutomationWebApp.Models.TriggerCondition;
+@{
+    ViewData["title"] = "Trigger condition";
+}
+<div class="container">
+    <form asp-action="SetCondition">
+        <div class="form-group row">
+            <label class="col-sm-1-12 col-form-label">Title</label>
+            <div class="col-sm-1-12">
+                <input asp-for="@Model.Trigger.Title" type="text" class="form-control" name="@Model.Trigger.Title" id="@Model.Trigger.Title" placeholder="">
+            </div>
+        </div>
+        
+        <div class="form-group row">
+            <label for="@Model.Trigger.Description" class="col-sm-1-12 col-form-label">Description</label>
+            <div class="col-sm-1-12">
+                <input asp-for="@Model.Trigger.Description" type="text" class="form-control" name="@Model.Trigger.Description" id="@Model.Trigger.Description" placeholder="">
+            </div>
+        </div>
+        
+        <div class="form-group row">
+            <label for="@Model.Trigger.IsNotActive" class="col-sm-1-12 col-form-label">IsNotActive</label>
+            <div class="col-sm-1-12">
+                <input asp-for="@Model.Trigger.IsNotActive" type="checkbox" class="form-control" name="@Model.Trigger.IsNotActive" id="@Model.Trigger.IsNotActive" placeholder="">
+            </div>
+        </div>
+        
+        <div class="form-group row">
+            <label for="@Model.Trigger.Position" class="col-sm-1-12 col-form-label">Position</label>
+            <div class="col-sm-1-12">
+                <input asp-for="@Model.Trigger.Position" type="number" class="form-control" name="@Model.Trigger.Position" id="@Model.Trigger.Position" placeholder="">
+            </div>
+        </div>
+        
+        <div class="form-group row">
+            <label for="@Model.Trigger.Table" class="col-sm-1-12 col-form-label">Table</label>
+            <div class="col-sm-1-12">
+                <input asp-for="@Model.Trigger.Table" type="text" class="form-control" name="@Model.Trigger.Table" id="@Model.Trigger.Table" placeholder="">
+            </div>
+        </div>
+        <div class="form-group">
+          <label for="">Condition</label>
+          <select class="form-control" name="" id="Condition">
+            <option value="">Choose one</option>
+            @foreach (var item in Model.Conditions)
+            {
+                <option value="@item.Id">@item.Id</option>
+            }
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="">Operator</label>
+          <input type="text" name="Operator" id="Operator" class="form-control" placeholder="Operator" aria-describedby="helpId">
+          <small id="helpId" class="text-muted">Help text</small>
+        </div>
+        <div class="form-group">
+          <label for="">Type</label>
+          <input type="text" name="Type" id="Type" class="form-control" placeholder="Type" aria-describedby="helpId">
+          <small id="helpId" class="text-muted">Help text</small>
+        </div>
+        <div class="form-group">
+          <label for="">Threshold</label>
+          <input type="text" name="Threshold" id="Threshold" class="form-control" placeholder="Threshold" aria-describedby="helpId">
+          <small id="helpId" class="text-muted">Help text</small>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input type="checkbox" class="form-check-input" name="" id="All" value="true" checked>
+            All (Any if not checked)
+          </label>
+        </div>
+        <div class="form-group row">
+            <div class="offset-sm-2 col-sm-10">
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+    </form>
+</div>
+<script>
+    var conditions = JSON.parse('@Html.Raw(Json.Serialize(Model.Conditions))');
+    $('#Condition').change(function(){
+        var condition = conditions.find(c => c.Id === parseInt($(this).val()));
+        $('#Operator').val(condition.Operator);
+        $('#Type').val(condition.Type);
+        $('#Threshold').val(condition.Threshold);
+    });
+</script>

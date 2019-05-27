@@ -2874,6 +2874,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Views\\Home\\SetCondition.cshtml",
+      "TargetPath": "Views\\Home\\SetCondition.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Views\\Home\\DetailCampaign.cshtml",
       "TargetPath": "Views\\Home\\DetailCampaign.cshtml",
       "FileKind": "mvc"

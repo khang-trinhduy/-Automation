@@ -290,6 +290,33 @@ namespace AutomationWebApp.Controllers
             }
             return View();
         }
+        [HttpGet]
+        public async Task<IActionResult> SetCondition(int id)
+        {
+            var data = await ApiClientFactory.Instance.GetTrigger(id);
+            if (data == null)
+            { return NotFound(); }
+            var conditions = await ApiClientFactory.Instance.GetConditions();
+            var model = new TriggerCondition { Trigger = data, Conditions = conditions };
+            return View(model);
+
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> SetCondition(int id, bool All, [Bind("Type, Threshold, Operator")] ConditionModel model)
+        {
+            var data = await ApiClientFactory.Instance.GetTrigger(id);
+            if (data == null)
+            {
+                return NotFound();
+            }
+            var respond = await ApiClientFactory.Instance.SetCondition(id, model, new { all = All });
+            if (respond != null && respond.IsSuccessStatusCode)
+            {
+                return RedirectToAction(nameof(Trigger));
+            }
+            return View();
+        }
         #endregion
         #region Action
         public async Task<IActionResult> Action()
