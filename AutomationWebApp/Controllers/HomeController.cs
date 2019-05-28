@@ -255,11 +255,23 @@ namespace AutomationWebApp.Controllers
             return NotFound();
         }
         [HttpGet]
-        public async Task<IActionResult> DetailTrigger(TriggerModel model)
+        public ActionResult DetailTrigger(TriggerModel model)
         {
+            ViewBag.del = true;
             if (model != null)
             {
                 return View(model);
+            }
+            return NotFound();
+        }
+        [HttpGet]
+        public async Task<IActionResult> ShowTrigger(int id)
+        {
+            var data = await ApiClientFactory.Instance.GetTrigger(id);
+
+            if (data != null)
+            {
+                return View("DetailTrigger", data);
             }
             return NotFound();
         }
@@ -344,6 +356,17 @@ namespace AutomationWebApp.Controllers
             return NotFound();
         }
         [HttpGet]
+        public async Task<IActionResult> ShowAction(int id)
+        {
+            ViewBag.del = true;
+            var data = await ApiClientFactory.Instance.GetAction(id);
+            if (data != null)
+            {
+                return View("DetailAction", data);
+            }
+            return NotFound();
+        }
+        [HttpGet]
         public async Task<IActionResult> EditAction(int id)
         {
             var data = await ApiClientFactory.Instance.GetAction(id);
@@ -371,6 +394,7 @@ namespace AutomationWebApp.Controllers
         [HttpGet]
         public ActionResult DetailAction(ActionModel model)
         {
+            ViewBag.del = true;
             return View(model);
         }
         [HttpGet]
@@ -450,6 +474,17 @@ namespace AutomationWebApp.Controllers
             return NotFound();
         }
         [HttpGet]
+        public async Task<IActionResult> ShowCondition(int id)
+        {
+            ViewBag.del = false;
+            var data = await ApiClientFactory.Instance.GetCondition(id);
+            if (data != null)
+            {
+                return View("DetailCondition", data);
+            }
+            return NotFound();
+        }
+        [HttpGet]
         public async Task<IActionResult> EditCondition(int id)
         {
             var data = await ApiClientFactory.Instance.GetCondition(id);
@@ -477,6 +512,7 @@ namespace AutomationWebApp.Controllers
         [HttpGet]
         public ActionResult DetailCondition(ConditionModel model)
         {
+            ViewBag.del = true;
             return View(model);
         }
         [HttpGet]

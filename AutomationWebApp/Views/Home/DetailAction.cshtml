@@ -2,7 +2,12 @@
 @{
     ViewData["title"] = "Detail action";
 }
-<h4>The following action has been removed</h4>
+@if (ViewBag.del)
+{
+  <h4>The following action has been removed</h4>
+    
+}
+<h4>Action</h4>
 <div class="form-group">
   <label asp-for="Type">Type</label>
   <input asp-for="Type" type="text" name="Type" id="Type" class="form-control" placeholder="" aria-describedby="helpId">
@@ -13,4 +18,12 @@
   <input asp-for="Value" type="text" name="Value" class="form-control" placeholder="" aria-describedby="helpId">
   <small id="helpId" class="text-muted">Help text</small>
 </div>
+@if (Model.MetaData != null)
+{
+  var item = Model.MetaData;
+  <p>Metadata</p>
+  <p>-Field: @item.Field</p>
+  <p>-Type: @item.Type</p>
+  <p>-Table: @item.Table</p>  
+}
 <a asp-action="Action">Back to action page</a>

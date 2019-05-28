@@ -2,30 +2,83 @@
 @{
     ViewData["title"] = "Detail trigger";
 }
-<h4>The following trigger has been removed</h4>
+@if (ViewBag.del == true)
+{
+  <h4>The following trigger has been removed</h4>
+    
+}
+<h4>Trigger</h4>
 <div class="form-group">
   <label asp-for="Title">Title</label>
   <input asp-for="Title" type="text" name="Title" id="Title" class="form-control" placeholder="Title" aria-describedby="helpId">
-  <small id="helpId" class="text-muted">Help text</small>
 </div>
 <div class="form-group">
   <label asp-for="Description">Description</label>
   <input asp-for="Description" type="text" name="Description" id="Description" class="form-control" placeholder="Description" aria-describedby="helpId">
-  <small id="helpId" class="text-muted">Help text</small>
 </div>
 <div class="form-group">
   <label asp-for="IsNotActive">IsNotActive</label>
   <input asp-for="IsNotActive" type="checkbox" name="IsNotActive" id="IsNotActive" class="form-control" placeholder="IsNotActive" aria-describedby="helpId">
-  <small id="helpId" class="text-muted">Help text</small>
 </div>
 <div class="form-group">
   <label asp-for="Position">Position</label>
   <input asp-for="Position" type="number" name="Position" id="Position" class="form-control" placeholder="Position" aria-describedby="helpId">
-  <small id="helpId" class="text-muted">Help text</small>
 </div>
 <div class="form-group">
   <label asp-for="Table">Table</label>
   <input asp-for="Table" type="text" name="Table" id="Table" class="form-control" placeholder="Table" aria-describedby="helpId">
-  <small id="helpId" class="text-muted">Help text</small>
 </div>
+<hr/>
+<h4>Actions</h4>
+<ul>
+  @foreach (var item in Model.Actions)
+  {
+    <li>
+        <p>-Type: @item.Type</p>
+        <p>-Value: @item.Value</p>
+        <p>Metadata</p>
+        <p>-Field: @item.MetaData.Field</p>
+        <p>-Type: @item.MetaData.Type</p>
+        <p>-Table: @item.MetaData.Table<p>
+      
+    </li>
+  }
+
+</ul>
+<hr>
+<h4>Condition</h4>
+<h5>All</h5>
+<ul>
+  @foreach (var item in Model.All)
+  {
+    <li>
+        <p>-Operator: @item.Operator</p>
+        <p>-Type: @item.Type</p>
+        <p>-Threshold: @item.Threshold<p> 
+        <p>Metadata</p>
+        <p>-Field: @item.MetaData.Field</p>
+        <p>-Type: @item.MetaData.Type</p>
+        <p>-Table: @item.MetaData.Table<p>
+      
+    </li>
+  }
+
+</ul>
+<h5>All</h5>
+<ul>
+  @foreach (var item in Model.Any)
+  {
+    <li>
+        <p>-Operator: @item.Operator</p>
+        <p>-Type: @item.Type</p>
+        <p>-Threshold: @item.Threshold<p>
+        <p>Metadata</p>
+        <p>-Field: @item.MetaData.Field</p>
+        <p>-Type: @item.MetaData.Type</p>
+        <p>-Value: @item.MetaData.Table<p>
+      
+    </li>
+  }
+
+</ul>
 <a asp-action="Trigger">Back to list</a>

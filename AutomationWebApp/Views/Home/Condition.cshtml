@@ -21,7 +21,9 @@
                 <td scope="row">@item.Operator</td>
                 <td>@item.Threshold</td>
                 <td>@item.Type</td>
-                <td><a asp-action="EditCondition" asp-route-id="@item.Id">Edit</a> | 
+                <td>
+                    <a asp-action="ShowCondition" asp-route-id="@item.Id">Detail</a> | 
+                    <a asp-action="EditCondition" asp-route-id="@item.Id">Edit</a> | 
                     <a asp-action="DeleteCondition" asp-route-id="@item.Id">Delete</a> |
                     <a asp-action="SetConditionMeta" asp-route-id="@item.Id">Set meta</a>
                 </td>
