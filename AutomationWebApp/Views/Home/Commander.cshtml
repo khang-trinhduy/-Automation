@@ -1,0 +1,18 @@
+@model IEnumerable<SharedLibrary.TriggerModel>
+@{
+    ViewData["title"] = "Commander";
+}
+<ul>
+    @foreach (var item in Model.OrderBy(t => t.Position))
+    {
+        <li>
+            <div>
+                <h4>@item.Title</h4>
+                <i>@item.Description</i>
+                <button asp-route-id="@item.Id" asp-action="ExecuteOne" class="btn btn-primary">Run</button>
+            </div>
+        </li>
+        
+    }
+</ul>
+<a asp-action="ExecuteAll">Run all</a>

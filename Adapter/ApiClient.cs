@@ -32,6 +32,17 @@ namespace Adapter
             var data = await respond.Content.ReadAsStringAsync();
             return JsonConvert.DeserializeObject<T>(data);
         }
+        private async Task<HttpResponseMessage> GetNAsync(Uri requestUri)
+        {
+            //FIXME wth is this?
+            _httpClient.DefaultRequestHeaders.Remove("userIP");
+            _httpClient.DefaultRequestHeaders.Add("userIP", "192.168.1.1");
+
+            var respond = await _httpClient.GetAsync(requestUri, HttpCompletionOption.ResponseHeadersRead);
+            respond.EnsureSuccessStatusCode();
+            var data = await respond.Content.ReadAsStringAsync();
+            return respond;
+        }
         private async Task<Message<T>> PostAsync<T>(Uri requestUrl, T content)
         {
             var respond = await _httpClient.PostAsync(requestUrl.ToString(), CreateHttpContent(content));

@@ -225,11 +225,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\trinh\\source\\WTF\\API\\Automation\\sharedlibrary\\sharedlibrary.csproj",
+      "projectUniqueName": "c:\\Users\\trinh\\source\\WTF\\API\\Automation\\sharedlibrary\\sharedlibrary.csproj",
       "projectName": "sharedlibrary",
-      "projectPath": "C:\\Users\\trinh\\source\\WTF\\API\\Automation\\sharedlibrary\\sharedlibrary.csproj",
+      "projectPath": "c:\\Users\\trinh\\source\\WTF\\API\\Automation\\sharedlibrary\\sharedlibrary.csproj",
       "packagesPath": "C:\\Users\\trinh\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\trinh\\source\\WTF\\API\\Automation\\sharedlibrary\\obj\\",
+      "outputPath": "c:\\Users\\trinh\\source\\WTF\\API\\Automation\\sharedlibrary\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -277,13 +277,5 @@
         "warn": true
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\trinh\\source\\WTF\\API\\Automation\\sharedlibrary\\obj\\sharedlibrary.csproj.nuget.cache : Found invalid data while decoding."
-    }
-  ]
+  }
 }

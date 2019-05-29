@@ -36,11 +36,11 @@
     <li>
         <p>-Type: @item.Type</p>
         <p>-Value: @item.Value</p>
+        <a asp-action="UnsetAction" asp-route-id="@Model.Id" asp-route-aId="@item.Id">Remove</a>
         <p>Metadata</p>
         <p>-Field: @item.MetaData.Field</p>
         <p>-Type: @item.MetaData.Type</p>
         <p>-Table: @item.MetaData.Table<p>
-      
     </li>
   }
 
@@ -55,16 +55,16 @@
         <p>-Operator: @item.Operator</p>
         <p>-Type: @item.Type</p>
         <p>-Threshold: @item.Threshold<p> 
+        <a asp-action="UnsetCondition" asp-route-id="@Model.Id" asp-route-cId="@item.Id" asp-route-all="true">Remove</a>
         <p>Metadata</p>
         <p>-Field: @item.MetaData.Field</p>
         <p>-Type: @item.MetaData.Type</p>
         <p>-Table: @item.MetaData.Table<p>
-      
     </li>
   }
 
 </ul>
-<h5>All</h5>
+<h5>Any</h5>
 <ul>
   @foreach (var item in Model.Any)
   {
@@ -72,11 +72,11 @@
         <p>-Operator: @item.Operator</p>
         <p>-Type: @item.Type</p>
         <p>-Threshold: @item.Threshold<p>
+        <a asp-action="UnsetCondition" asp-route-id="@Model.Id" asp-route-cId="@item.Id" asp-route-all="false">Remove</a>      
         <p>Metadata</p>
         <p>-Field: @item.MetaData.Field</p>
         <p>-Type: @item.MetaData.Type</p>
         <p>-Value: @item.MetaData.Table<p>
-      
     </li>
   }
 

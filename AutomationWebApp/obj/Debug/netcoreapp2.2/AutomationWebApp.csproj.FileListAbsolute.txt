@@ -66,3 +66,4 @@ C:\Users\trinh\source\WTF\API\Automation\AutomationWebApp\obj\Debug\netcoreapp2.
 C:\Users\trinh\source\WTF\API\Automation\AutomationWebApp\obj\Debug\netcoreapp2.2\Razor\Views\Home\SetCondition.g.cshtml.cs
 C:\Users\trinh\source\WTF\API\Automation\AutomationWebApp\obj\Debug\netcoreapp2.2\Razor\Views\Home\SetActionMeta.g.cshtml.cs
 C:\Users\trinh\source\WTF\API\Automation\AutomationWebApp\obj\Debug\netcoreapp2.2\Razor\Views\Home\SetConditionMeta.g.cshtml.cs
+C:\Users\trinh\source\WTF\API\Automation\AutomationWebApp\obj\Debug\netcoreapp2.2\Razor\Views\Home\Commander.g.cshtml.cs

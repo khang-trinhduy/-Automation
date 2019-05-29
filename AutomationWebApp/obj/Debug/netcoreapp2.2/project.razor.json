@@ -2769,6 +2769,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Views\\Home\\Commander.cshtml",
+      "TargetPath": "Views\\Home\\Commander.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Views\\Home\\Metadata.cshtml",
       "TargetPath": "Views\\Home\\Metadata.cshtml",
       "FileKind": "mvc"

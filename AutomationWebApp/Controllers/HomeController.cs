@@ -36,6 +36,43 @@ namespace AutomationWebApp.Controllers
         {
             return View();
         }
+        [HttpGet]
+        public async Task<IActionResult> Commander()
+        {
+            var data = await ApiClientFactory.Instance.GetTriggers();
+            if (data == null)
+            {
+                return NotFound();
+            }
+            return View(data);
+        }
+        // [HttpPost]
+        // public async Task<IActionResult> ExecuteOne(int id)
+        // {
+        //     var data = await ApiClientFactory.Instance.GetTrigger(id);
+        //     if (data != null)
+        //     {
+        //         var respond = await ApiClientFactory.Instance.Execute(data);
+        //         if (respond != null && respond.IsSuccessStatusCode)
+        //         {
+        //             return Ok();
+        //         }
+        //     }
+        //     return NotFound();
+        // }
+        public async Task<IActionResult> ExecuteAll()
+        {
+            var data = await ApiClientFactory.Instance.GetTriggers();
+            if (data != null)
+            {
+                var respond = await ApiClientFactory.Instance.Execute();
+                if (respond != null)
+                {
+                    return Ok(respond.Content.ReadAsStringAsync().Result);
+                }
+            }
+            return NotFound();
+        }
 
         #region Contact  
 
@@ -275,6 +312,22 @@ namespace AutomationWebApp.Controllers
             }
             return NotFound();
         }
+        public async Task<IActionResult> UnsetAction(int id, int aId)
+        {
+            var data = await ApiClientFactory.Instance.GetTrigger(id);
+            if (data == null)
+            { return NotFound(); }
+            var action = await ApiClientFactory.Instance.GetAction(aId);
+            if (action == null)
+            { return NotFound(); }
+            var respond = await ApiClientFactory.Instance.UnsetAction(id, action);
+            if (respond != null && respond.IsSuccessStatusCode)
+            {
+                return RedirectToAction(nameof(Trigger));
+            }
+            return NotFound();
+
+        }
         [HttpGet]
         public async Task<IActionResult> SetAction(int id)
         {
@@ -288,14 +341,34 @@ namespace AutomationWebApp.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> SetAction(int id, [Bind("Value, Type")] ActionModel model)
+        public async Task<IActionResult> SetAction(int id, int aId, [Bind("Value, Type")] ActionModel model)
+        {
+            var data = await ApiClientFactory.Instance.GetTrigger(id);
+            if (data == null || aId < 0)
+            {
+                return NotFound();
+            }
+            model.Id = aId;
+            var respond = await ApiClientFactory.Instance.SetAction(id, model);
+            if (respond != null && respond.IsSuccessStatusCode)
+            {
+                return RedirectToAction(nameof(Trigger));
+            }
+            return View();
+        }
+        public async Task<IActionResult> UnsetCondition(int id, int cId, bool all)
         {
             var data = await ApiClientFactory.Instance.GetTrigger(id);
             if (data == null)
             {
                 return NotFound();
             }
-            var respond = await ApiClientFactory.Instance.SetAction(id, model);
+            var condition = await ApiClientFactory.Instance.GetCondition(cId);
+            if (condition == null)
+            {
+                return NotFound();
+            }
+            var respond = await ApiClientFactory.Instance.UnsetCondition(id, condition, new {all = all});
             if (respond != null && respond.IsSuccessStatusCode)
             {
                 return RedirectToAction(nameof(Trigger));

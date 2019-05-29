@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using SharedLibrary;
@@ -92,6 +93,12 @@ namespace Adapter
                 "Triggers/" + id.ToString()));
             return await PutAsync<TriggerModel>(requestUrl, model);
         }
+        public async Task<HttpResponseMessage> Execute()
+        {
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "Handlers/"));
+            return await GetNAsync(requestUrl);
+        }
         public async Task<Message<TriggerModel>> RemoveTrigger(int id)
         {
             var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
@@ -104,6 +111,12 @@ namespace Adapter
                 "Triggers/setaction/"+ id.ToString()));
             return await PutAsync<TriggerModel, ActionModel>(requestUrl, model);
         }
+        public async Task<Message<TriggerModel>> UnsetAction(int id, ActionModel model)
+        {
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "Triggers/unsetaction/"+ id.ToString()));
+            return await PutAsync<TriggerModel, ActionModel>(requestUrl, model);
+        }
         public async Task<Message<TriggerModel>> SetCondition(int id, ConditionModel model, object queries)
         {
             string query = CreateQuery(queries);
@@ -113,6 +126,17 @@ namespace Adapter
             }
             var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
                 "Triggers/setcondition/" + id.ToString()), query);
+            return await PutAsync<TriggerModel, ConditionModel>(requestUrl, model);
+        }
+        public async Task<Message<TriggerModel>> UnsetCondition(int id, ConditionModel model, object queries)
+        {
+            string query = CreateQuery(queries);
+            if (query == "" || query == "&")
+            {
+                throw new Exception(nameof(queries));
+            }
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "Triggers/unsetcondition/" + id.ToString()), query);
             return await PutAsync<TriggerModel, ConditionModel>(requestUrl, model);
         }
         public async Task<List<ActionModel>> GetActions(object queries)

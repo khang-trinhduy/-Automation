@@ -50,6 +50,12 @@
             }
           </select>
         </div>
+        <div class="form-group row" hidden>
+            <label class="col-sm-1-12 col-form-label">Id</label>
+            <div class="col-sm-1-12">
+                <input type="text" class="form-control" name="aId" id="aId" placeholder="Title">
+            </div>
+        </div>
         <div class="form-group">
           <label id="TypeLabel">Action's type</label>
           <input type="text" name="Type" id="Type" class="form-control" placeholder="" aria-describedby="">
@@ -70,5 +76,6 @@
     $('#Action').change(function () {
         $('#Type').val(actions.find(a => a.Id === parseInt($(this).val())).Type);
         $('#Value').val(actions.find(a => a.Id === parseInt($(this).val())).Value);
+        $('#aId').val(actions.find(a => a.Id === parseInt($(this).val())).Id);
     })
 </script>
