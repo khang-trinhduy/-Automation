@@ -48,6 +48,11 @@
             }
           </select>
         </div>
+        <div class="form-group" hidden>
+          <label for="">Operator</label>
+          <input type="text" name="cId" id="cId" class="form-control" placeholder="Operator" aria-describedby="helpId">
+          <small id="helpId" class="text-muted">Help text</small>
+        </div>
         <div class="form-group">
           <label for="">Operator</label>
           <input type="text" name="Operator" id="Operator" class="form-control" placeholder="Operator" aria-describedby="helpId">
@@ -83,5 +88,6 @@
         $('#Operator').val(condition.Operator);
         $('#Type').val(condition.Type);
         $('#Threshold').val(condition.Threshold);
+        $('#cId').val(condition.Id);
     });
 </script>

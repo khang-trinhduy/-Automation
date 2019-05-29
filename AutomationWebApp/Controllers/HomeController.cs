@@ -388,13 +388,14 @@ namespace AutomationWebApp.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> SetCondition(int id, bool All, [Bind("Type, Threshold, Operator")] ConditionModel model)
+        public async Task<IActionResult> SetCondition(int id, int cId, bool All, [Bind("Type, Threshold, Operator")] ConditionModel model)
         {
             var data = await ApiClientFactory.Instance.GetTrigger(id);
             if (data == null)
             {
                 return NotFound();
             }
+            model.Id = cId;
             var respond = await ApiClientFactory.Instance.SetCondition(id, model, new { all = All });
             if (respond != null && respond.IsSuccessStatusCode)
             {
