@@ -49,17 +49,24 @@ namespace AutomationWebApp.Controllers
         public async Task<IActionResult> ExecuteOne(int id)
         {
             var data = await ApiClientFactory.Instance.GetTrigger(id);
+            var triggers = await ApiClientFactory.Instance.GetTriggers();
             if (data.IsNotActive)
             {
                 ViewBag.IsNotActive = true;
-                return RedirectToAction(nameof(Commander));
+                if (triggers == null)
+                {
+                    return NotFound();
+                }
+                return View("Commander", triggers);
             }
             if (data != null)
             {
                 var respond = await ApiClientFactory.Instance.Execute(id);
                 if (respond != null && respond.IsSuccessStatusCode)
                 {
-                    return Ok();
+                    ViewBag.message = respond.Content.ReadAsStringAsync().Result;
+
+                    return View("Commander", triggers);
                 }
             }
             return NotFound();
@@ -70,9 +77,10 @@ namespace AutomationWebApp.Controllers
             if (data != null)
             {
                 var respond = await ApiClientFactory.Instance.Execute();
-                if (respond != null)
+                if (respond != null && respond.IsSuccessStatusCode)
                 {
-                    return Ok(respond.Content.ReadAsStringAsync().Result);
+                    ViewBag.message = respond.Content.ReadAsStringAsync().Result;
+                    return View("Commander", data);
                 }
             }
             return NotFound();
