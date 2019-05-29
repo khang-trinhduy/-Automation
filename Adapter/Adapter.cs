@@ -99,6 +99,12 @@ namespace Adapter
                 "Handlers/"));
             return await GetNAsync(requestUrl);
         }
+        public async Task<HttpResponseMessage> Execute(int id)
+        {
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "Handlers/" + id.ToString()));
+            return await GetNAsync(requestUrl);
+        }
         public async Task<Message<TriggerModel>> RemoveTrigger(int id)
         {
             var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,

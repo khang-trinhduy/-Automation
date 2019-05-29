@@ -46,20 +46,24 @@ namespace AutomationWebApp.Controllers
             }
             return View(data);
         }
-        // [HttpPost]
-        // public async Task<IActionResult> ExecuteOne(int id)
-        // {
-        //     var data = await ApiClientFactory.Instance.GetTrigger(id);
-        //     if (data != null)
-        //     {
-        //         var respond = await ApiClientFactory.Instance.Execute(data);
-        //         if (respond != null && respond.IsSuccessStatusCode)
-        //         {
-        //             return Ok();
-        //         }
-        //     }
-        //     return NotFound();
-        // }
+        public async Task<IActionResult> ExecuteOne(int id)
+        {
+            var data = await ApiClientFactory.Instance.GetTrigger(id);
+            if (data.IsNotActive)
+            {
+                ViewBag.IsNotActive = true;
+                return RedirectToAction(nameof(Commander));
+            }
+            if (data != null)
+            {
+                var respond = await ApiClientFactory.Instance.Execute(id);
+                if (respond != null && respond.IsSuccessStatusCode)
+                {
+                    return Ok();
+                }
+            }
+            return NotFound();
+        }
         public async Task<IActionResult> ExecuteAll()
         {
             var data = await ApiClientFactory.Instance.GetTriggers();

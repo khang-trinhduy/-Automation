@@ -1,6 +1,19 @@
 @model IEnumerable<SharedLibrary.TriggerModel>
 @{
     ViewData["title"] = "Commander";
+    if (ViewBag.IsNotActive != null)
+    {
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <strong>Trigger is not active</strong> 
+        </div>
+        
+        <script>
+          $(".alert").alert();
+        </script>
+    }
 }
 <ul>
     @foreach (var item in Model.OrderBy(t => t.Position))
@@ -9,7 +22,7 @@
             <div>
                 <h4>@item.Title</h4>
                 <i>@item.Description</i>
-                <button asp-route-id="@item.Id" asp-action="ExecuteOne" class="btn btn-primary">Run</button>
+                <a asp-route-id="@item.Id" asp-action="ExecuteOne">Run</a>
             </div>
         </li>
         
